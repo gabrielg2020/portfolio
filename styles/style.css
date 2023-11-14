@@ -39,7 +39,6 @@
 }
 
 a {
-  text-decoration: ;
   color: black;
 }
 
@@ -110,4 +109,16 @@ a {
 
 #footer span {
   font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .container {
+    width: 90vw;
+    padding: 1rem;
+  }
+
+  #wrapper {
+    flex-direction: column;
+  }
 }
