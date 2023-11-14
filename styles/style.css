@@ -8,8 +8,8 @@
 
 .container {
   border: 3px solid black;
-  min-width: 55vh;
-  min-height: 200px;
+  min-width: 40vw;
+  min-height: 12.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,24 +39,24 @@
 }
 
 #default-wrapper h1 {
-  font-size: 1.7rem;
+  font-size: 2.5rem;
   margin-bottom: 0.2rem;
 }
 
 #default-wrapper h2 {
-  font-size: 1.3rem;
-  font-weight: 300;
-  margin-bottom: 0.5rem;
+  font-size: 1.7rem;
+  font-weight: 200;
+  margin-bottom: 0.75rem;
 }
 
 #default-wrapper p {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
 }
 
 
 #skills-carousel{
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 #skills-carousel img {
@@ -65,6 +65,6 @@
 }
 
 #skills-carousel img:hover {
-  transform: scale(1.2);
+  transform: scale(1.3);
 }
 
