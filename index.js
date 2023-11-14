@@ -20,11 +20,11 @@ navItems.forEach(item => {
     if (item.innerHTML === 'skills') {
       infoContainer.innerHTML = `
       <ul id="skills-carousel">
-          <li><img src="/public/react.svg" alt=""></li>
-          <li><img src="/public/language-javascript.svg" alt=""></li>
-          <li><img src="/public/language-python.svg" alt=""></li>
-          <li><img src="/public/language-html5.svg" alt=""></li>
-          <li><img src="/public/language-css3.svg" alt=""></li>
+          <li><img src="public/react.svg" alt=""></li>
+          <li><img src="public/language-javascript.svg" alt=""></li>
+          <li><img src="public/language-python.svg" alt=""></li>
+          <li><img src="public/language-html5.svg" alt=""></li>
+          <li><img src="public/language-css3.svg" alt=""></li>
         </ul>
       `;
     } else if (item.innerHTML === 'projects') {
@@ -32,7 +32,7 @@ navItems.forEach(item => {
       <div class="project">
         <div class="top-line">
           <h2>Maze Visualizer</h2>
-          <img src="/public/open-in-new.svg" alt="">
+          <img src="public/open-in-new.svg" alt="">
         </div>
         <div>
           A highly interactive maze visualizer built with VB.NET and WinForms.
@@ -42,7 +42,7 @@ navItems.forEach(item => {
       <div class="project">
         <div class="top-line">
           <h2>Physics Simulator</h2>
-          <img src="/public/open-in-new.svg" alt="">
+          <img src="public/open-in-new.svg" alt="">
         </div>
         <div>
           A realtime physics simulator built with React, JavaScript and PixiJS.
