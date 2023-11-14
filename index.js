@@ -3,6 +3,17 @@ const infoContainer = document.querySelector('#info-container');
 
 navItems.forEach(item => {
   item.addEventListener('click', () => {
+    if (item.classList.contains('selected')) {
+      infoContainer.innerHTML = `
+      <div id="default-wrapper">
+        <h1>Hello! I'm Gabriel Guimaraes,</h1>
+        <h2>Software Engineer.</h2>
+        <p>Click around to learn more!</p>
+      </div>`;
+      item.classList.remove('selected');
+      return;
+    }
+
     navItems.forEach(item => item.classList.remove('selected'));
     item.classList.add('selected');
 

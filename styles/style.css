@@ -27,11 +27,32 @@
   cursor: pointer;
 }
 
+.nav-item:hover {
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
 .selected {
   cursor: progress;
-  text-decoration: underline;
   font-weight: 600;
+  transform: scale(1.2);
 }
+
+#default-wrapper h1 {
+  font-size: 1.7rem;
+  margin-bottom: 0.2rem;
+}
+
+#default-wrapper h2 {
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+
+#default-wrapper p {
+  font-size: 1.1rem;
+}
+
 
 #skills-carousel{
   display: flex;
