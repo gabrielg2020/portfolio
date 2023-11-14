@@ -40,5 +40,10 @@
 
 #skills-carousel img {
   height: 64px;
+  transition: transform 0.2s;
+}
+
+#skills-carousel img:hover {
+  transform: scale(1.2);
 }
 
