@@ -8,8 +8,8 @@
 
 .container {
   border: 3px solid black;
-  width: 55vh;
-  height: 200px;
+  min-width: 55vh;
+  min-height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,12 @@
   text-align: center;
 }
 
+.nav-item {
+  cursor: pointer;
+}
+
 .selected {
+  cursor: progress;
   text-decoration: underline;
   font-weight: 600;
 }
