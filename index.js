@@ -27,6 +27,28 @@ navItems.forEach(item => {
           <li><img src="/public/language-css3.svg" alt=""></li>
         </ul>
       `;
+    } else if (item.innerHTML === 'projects') {
+      infoContainer.innerHTML = ` <div id="project-list">
+      <div class="project">
+        <div class="top-line">
+          <h2>Maze Visualizer</h2>
+          <img src="/public/open-in-new.svg" alt="">
+        </div>
+        <div>
+          A highly interactive maze visualizer built with VB.NET and WinForms.
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="top-line">
+          <h2>Physics Simulator</h2>
+          <img src="/public/open-in-new.svg" alt="">
+        </div>
+        <div>
+          A realtime physics simulator built with React, JavaScript and PixiJS.
+        </div>
+      </div>
+    </div>`;
     } else {
       infoContainer.innerHTML = 'not added yet'
     }
