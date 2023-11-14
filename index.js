@@ -14,12 +14,16 @@ navItems.forEach(item => {
       return;
     }
 
+    if (item.innerHTML === 'download resume') {
+      return;
+    }
+
     navItems.forEach(item => item.classList.remove('selected'));
     item.classList.add('selected');
 
     if (item.innerHTML === 'skills') {
       infoContainer.innerHTML = `
-      <ul id="skills-carousel">
+      <ul id="carousel">
           <li><img src="public/react.svg" alt=""></li>
           <li><img src="public/language-javascript.svg" alt=""></li>
           <li><img src="public/language-python.svg" alt=""></li>
@@ -32,7 +36,7 @@ navItems.forEach(item => {
       <div class="project">
         <div class="top-line">
           <h2>Maze Visualizer</h2>
-          <img src="public/open-in-new.svg" alt="">
+          <a href="https://github.com/gabrielg2020/A-Level-Computer-Science-NEA-2023"><img src="public/open-in-new.svg" alt=""></a>
         </div>
         <div>
           A highly interactive maze visualizer built with VB.NET and WinForms.
@@ -42,15 +46,20 @@ navItems.forEach(item => {
       <div class="project">
         <div class="top-line">
           <h2>Physics Simulator</h2>
-          <img src="public/open-in-new.svg" alt="">
+          <a href="https://github.com/gabrielg2020/realtime-physics-sim"><img src="public/open-in-new.svg" alt=""></a>
         </div>
         <div>
           A realtime physics simulator built with React, JavaScript and PixiJS.
         </div>
       </div>
     </div>`;
-    } else {
-      infoContainer.innerHTML = 'not added yet'
+    } else if (item.innerHTML === 'get in touch') {
+      infoContainer.innerHTML = `
+      <ul id="carousel">
+        <li><a href="https://twitter.com/gabrielg3333"><img src="public/twitter.svg" alt=""></a></li>
+        <li><a href="https://discordapp.com/users/598261411709321216"><img src="public/icons8-discord-512.svg" alt=""></a></li>
+        <li><a href="mailto:gabriel.mg04@outlook.com"><img src="public/email-outline.svg" alt=""></a></li>
+      </ul>`;
     }
   });
 });

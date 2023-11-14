@@ -38,6 +38,11 @@
   transform: scale(1.2);
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 #default-wrapper h1 {
   font-size: 2.5rem;
   margin-bottom: 0.2rem;
@@ -54,17 +59,17 @@
 }
 
 
-#skills-carousel{
+#carousel{
   display: flex;
   gap: 1rem;
 }
 
-#skills-carousel img {
+#carousel img {
   height: 64px;
   transition: transform 0.2s;
 }
 
-#skills-carousel img:hover {
+#carousel img:hover {
   transform: scale(1.3);
 }
 
@@ -93,5 +98,6 @@
 
 .project img:hover {
   transform: scale(1.2);
+  cursor: pointer;
 }
 
