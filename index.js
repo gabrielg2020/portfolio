@@ -49,7 +49,7 @@ navItems.forEach(item => {
           <a href="https://github.com/gabrielg2020/realtime-physics-sim"><img src="public/open-in-new.svg" alt=""></a>
         </div>
         <div>
-          A realtime physics simulator built with React, JavaScript and PixiJS.
+          A realtime physics simulator built with React, JavaScript and Canvas API.
         </div>
       </div>
     </div>`;
