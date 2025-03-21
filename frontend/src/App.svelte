@@ -3,7 +3,7 @@
 </script>
 
 <main>
-  <Background></Background>
+  <Background circleCount={100} minRadius={3} maxRadius={10} />
 </main>
 
 <style>
