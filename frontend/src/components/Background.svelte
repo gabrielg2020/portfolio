@@ -14,7 +14,9 @@
   let height: number;
   let animationId: number;
 
+  // Animation Variables
   let circles = [];
+  let mouse = { x: 0, y: 0, isActive: false };
 
   onMount(() => {
     // Initialise Canvas
@@ -29,9 +31,17 @@
 
     // Add event listeners
     window.addEventListener("resize", resizeCanvas);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousedown', () => { mouse.isActive = true; });
+    window.addEventListener('mouseup', () => { mouse.isActive = false; });
+    window.addEventListener('mouseleave', () => { mouse.isActive = false; });
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousedown', () => { mouse.isActive = true; });
+      window.removeEventListener('mouseup', () => { mouse.isActive = false; });
+      window.removeEventListener('mouseleave', () => { mouse.isActive = false; });
     };
   });
 
@@ -70,6 +80,12 @@
   function getRandomColor(alpha = 1) {
     const lightness = Math.floor(Math.random() * 100);
     return `hsla(0, 0%, ${lightness}%, ${alpha})`;
+  }
+
+  function handleMouseMove(event) {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = event.clientX - rect.left;
+    mouse.y = event.clientY - rect.top;
   }
 
   function animate() {
