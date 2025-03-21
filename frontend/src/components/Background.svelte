@@ -2,13 +2,13 @@
   import { onMount, onDestroy } from "svelte";
 
   // Props
-  export let backgroundColor = "#121212";
+  export let backgroundColour = "#121212";
   export let circleCount = 50;
   export let minRadius = 5;
   export let maxRadius = 20;
   export let interactionRadius = 100;
   export let bounceForce = 0.1;
-  export let interactionRadiusColor = 'rgba(255, 255, 255, 0.2)';
+  export let interactionRadiusColour = 'rgba(255, 255, 255, 0.2)';
 
   // DOM Variables
   let canvas: HTMLCanvasElement;
@@ -18,7 +18,16 @@
   let animationId: number;
 
   // Animation Variables
-  let circles = [];
+  interface Circle {
+    x: number;
+    y: number;
+    radius: number;
+    dx: number;
+    dy: number;
+    colour: string;
+    originalColour: string;
+  }
+  let circles:Circle[] = [];
   let mouse = { x: 0, y: 0, isActive: false };
 
   onMount(() => {
@@ -74,13 +83,13 @@
         radius: minRadius + Math.random() * (maxRadius - minRadius),
         dx: (Math.random() - 0.5) * 2,
         dy: Math.random(),
-        color: getRandomColor(0.5),
-      originalColor: getRandomColor(0.5),
+        colour: getRandomColour(0.1),
+        originalColour: getRandomColour(0.1),
       });
     }
   }
 
-  function getRandomColor(alpha = 1) {
+  function getRandomColour(alpha = 1) {
     const lightness = Math.floor(Math.random() * 100);
     return `hsla(0, 0%, ${lightness}%, ${alpha})`;
   }
@@ -93,7 +102,7 @@
 
   function animate() {
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = backgroundColor;
+    ctx.fillStyle = backgroundColour;
     ctx.fillRect(0, 0, width, height);
     
     for (let i = 0; i < circles.length; i++) {
@@ -128,16 +137,16 @@
           // Stronger interaction when mouse is pressed
           circle.dx += Math.cos(angle) * force * 2;
           circle.dy += Math.sin(angle) * force * 2;
-          circle.color = `hsla(${(Date.now() / 20) % 360}, 100%, 70%, 0.8)`;
+          circle.colour = `hsla(${(Date.now() / 20) % 360}, 100%, 70%, 0.8)`;
         } else {
           // Normal interaction
           circle.dx += Math.cos(angle) * force;
           circle.dy += Math.sin(angle) * force;
-          circle.color = `hsla(${(Date.now() / 50) % 360}, 80%, 60%, 0.7)`;
+          circle.colour = `hsla(${(Date.now() / 50) % 360}, 80%, 60%, 0.7)`;
         }
       } else {
-        // Restore original color when not interacting
-        circle.color = circle.originalColor;
+        // Restore original colour when not interacting
+        circle.colour = circle.originalColour;
       }
       
       // Apply some gravity
@@ -150,7 +159,7 @@
       // Draw the circle
       ctx.beginPath();
       ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
-      ctx.fillStyle = circle.color;
+      ctx.fillStyle = circle.colour;
       ctx.fill();
     }
 
@@ -166,14 +175,14 @@
     // Draw circle around mouse showing interaction radius
     ctx.beginPath();
     ctx.arc(mouse.x, mouse.y, interactionRadius, 0, Math.PI * 2);
-    ctx.strokeStyle = interactionRadiusColor;
+    ctx.strokeStyle = interactionRadiusColour;
     ctx.lineWidth = 2;
     ctx.stroke();
     
     // Draw small dot at mouse position
     ctx.beginPath();
     ctx.arc(mouse.x, mouse.y, 3, 0, Math.PI * 2);
-    ctx.fillStyle = interactionRadiusColor;
+    ctx.fillStyle = interactionRadiusColour;
     ctx.fill();
   }
 </script>
