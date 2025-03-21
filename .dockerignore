@@ -1,0 +1,21 @@
+# Git
+.git
+.gitignore
+
+# Docker
+docker-compose.yml
+Dockerfile*
+.dockerignore
+
+# Node.js
+frontend/node_modules
+frontend/npm-debug.log
+
+# Go
+backend/vendor
+backend/static
+
+# Misc
+.env
+.DS_Store
+*.md

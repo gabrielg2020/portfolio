@@ -1,0 +1,30 @@
+FROM golang:1.23.2-alpine AS builder
+
+WORKDIR /app
+
+COPY go.mod go.sum ./
+
+# Download dependencies
+RUN go mod download
+
+# Copy source code
+COPY backend/ ./backend/
+
+# Build backend
+RUN CGO_ENABLED=0 GOOS=linux go build -o /app/server ./backend
+
+FROM alpine:latest
+
+WORKDIR /app
+
+# Copy build executable from the builder
+COPY --from=builder /app/server .
+
+# Copy static files from the builder
+COPY --from=builder /app/backend/static ./backend/static
+
+EXPOSE 8080
+
+# Run server
+CMD [ "/app/server" ]
+
