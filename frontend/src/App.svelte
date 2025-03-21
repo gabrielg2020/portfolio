@@ -1,9 +1,9 @@
 <script>
-  import Background from "./components/Home.svelte";
+  import Home from "./components/Home.svelte";
 </script>
 
 <main>
-  <Background circleCount={100} minRadius={3} maxRadius={10} />
+  <Home />
 </main>
 
 <style>
