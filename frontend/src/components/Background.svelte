@@ -8,6 +8,7 @@
   export let maxRadius = 20;
   export let interactionRadius = 100;
   export let bounceForce = 0.1;
+  export let interactionRadiusColor = 'rgba(255, 255, 255, 0.2)';
 
   // DOM Variables
   let canvas: HTMLCanvasElement;
@@ -152,8 +153,28 @@
       ctx.fillStyle = circle.color;
       ctx.fill();
     }
+
+    // Draw the interaction radius circle
+    drawInteractionRadiusCircle();
     
     animationId = requestAnimationFrame(animate);
+  }
+
+  function drawInteractionRadiusCircle() {
+    if (!mouse.x || !mouse.y) return;
+    
+    // Draw circle around mouse showing interaction radius
+    ctx.beginPath();
+    ctx.arc(mouse.x, mouse.y, interactionRadius, 0, Math.PI * 2);
+    ctx.strokeStyle = interactionRadiusColor;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    
+    // Draw small dot at mouse position
+    ctx.beginPath();
+    ctx.arc(mouse.x, mouse.y, 3, 0, Math.PI * 2);
+    ctx.fillStyle = interactionRadiusColor;
+    ctx.fill();
   }
 </script>
 
