@@ -32,7 +32,12 @@
 
   onMount(() => {
     // Initialise Canvas
-    ctx = canvas.getContext("2d");
+    const context = canvas.getContext("2d");
+    if (context) {
+      ctx = context;
+    } else {
+      console.error("Failed to get 2D context");
+    }
     resizeCanvas();
 
     // Create initial circles
@@ -65,8 +70,10 @@
 
   function resizeCanvas() {
     const container = canvas.parentElement;
-    width = container.clientWidth;
-    height = container.clientHeight;
+    if (container) {
+      width = container.clientWidth;
+      height = container.clientHeight;
+    }
     canvas.width = width;
     canvas.height = height;
 
@@ -94,7 +101,7 @@
     return `hsla(0, 0%, ${lightness}%, ${alpha})`;
   }
 
-  function handleMouseMove(event) {
+  function handleMouseMove(event: MouseEvent) {
     const rect = canvas.getBoundingClientRect();
     mouse.x = event.clientX - rect.left;
     mouse.y = event.clientY - rect.top;
