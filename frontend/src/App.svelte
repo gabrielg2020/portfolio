@@ -1,5 +1,5 @@
 <script>
-  import Background from "./components/Background.svelte";
+  import Background from "./components/Home.svelte";
 </script>
 
 <main>
