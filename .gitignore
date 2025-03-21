@@ -76,6 +76,8 @@ desktop.ini
 /.next/
 /.nuxt/
 /.output/
+backend/static/*
+!backend/static/.gitkeep
 
 # Docker volumes
 /volumes/

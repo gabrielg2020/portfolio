@@ -3,8 +3,10 @@ package routes
 import (
 	"github.com/gabrielg2020/portfolio/backend/handlers"
 	"github.com/gin-gonic/gin"
+	"log"
 	"net/http"
 	"path"
+	"path/filepath"
 )
 
 func SetupRouter() *gin.Engine {
@@ -21,9 +23,19 @@ func SetupRouter() *gin.Engine {
 
 	// Serve index.html for any unmatched routes
 	router.NoRoute(func(ctx *gin.Context) {
-		// Check if the request is for an API route
-		if path.Ext(ctx.Request.URL.Path) == "" && ctx.Request.URL.Path[:4] != "/api" {
-			ctx.File("./backend/static/index.html")
+		reqPath := ctx.Request.URL.Path
+		
+		// Check if the static directory exists and if index.html is there
+		indexPath := "./backend/static/index.html"
+		absPath, _ := filepath.Abs(indexPath)
+		log.Printf("Looking for index.html at: %s", absPath)
+		
+		// Check if the request is for an API route - safely
+		isAPIPath := len(reqPath) >= 4 && reqPath[:4] == "/api"
+		hasExtension := path.Ext(reqPath) != ""
+		
+		if !isAPIPath && !hasExtension {
+			ctx.File(indexPath)
 		} else {
 			ctx.Status(http.StatusNotFound)
 		}

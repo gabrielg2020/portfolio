@@ -14,4 +14,6 @@ COPY frontend/ ./
 # Build the app
 RUN npm run build
 
+CMD ["echo", "Frontend build complete!"]
+
 # NOTE: No need to create a frontend container as build output gets copied to the backend container
