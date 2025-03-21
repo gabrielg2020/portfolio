@@ -1,20 +1,14 @@
 <script>
-  async function testBackend() {
-    try {
-      const response = await fetch("/api/hello");
-      const data = await response.json();
-      alert(data.message);
-    } catch (error) {
-      console.error("Error connecting to backend: ", error);
-      alert("Could not connect to backend. Is it running?");
-    }
-  }
-
-  testBackend();
+  import Background from "./components/Background.svelte";
 </script>
 
 <main>
-  <div>
-    <h1>Hello World!</h1>
-  </div>
+  <Background></Background>
 </main>
+
+<style>
+  main {
+    width: 100%;
+    height: 100vh;
+  }
+</style>
