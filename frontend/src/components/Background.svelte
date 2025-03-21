@@ -6,6 +6,8 @@
   export let circleCount = 50;
   export let minRadius = 5;
   export let maxRadius = 20;
+  export let interactionRadius = 100;
+  export let bounceForce = 0.1;
 
   // DOM Variables
   let canvas: HTMLCanvasElement;
@@ -109,6 +111,32 @@
       if (circle.y - circle.radius > height) {
         circle.y = -circle.radius;
         circle.x = Math.random() * width;
+      }
+
+      // Check for mouse interaction
+      const distance = Math.sqrt(
+        Math.pow(mouse.x - circle.x, 2) + Math.pow(mouse.y - circle.y, 2)
+      );
+
+      if (distance < interactionRadius) {
+        // If mouse is nearby, apply a repulsive force
+        const angle = Math.atan2(circle.y - mouse.y, circle.x - mouse.x);
+        const force = (interactionRadius - distance) / interactionRadius * bounceForce;
+        
+        if (mouse.isActive) {
+          // Stronger interaction when mouse is pressed
+          circle.dx += Math.cos(angle) * force * 2;
+          circle.dy += Math.sin(angle) * force * 2;
+          circle.color = `hsla(${(Date.now() / 20) % 360}, 100%, 70%, 0.8)`;
+        } else {
+          // Normal interaction
+          circle.dx += Math.cos(angle) * force;
+          circle.dy += Math.sin(angle) * force;
+          circle.color = `hsla(${(Date.now() / 50) % 360}, 80%, 60%, 0.7)`;
+        }
+      } else {
+        // Restore original color when not interacting
+        circle.color = circle.originalColor;
       }
       
       // Apply some gravity
