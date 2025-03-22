@@ -1,14 +1,22 @@
 <script lang="ts">
-  import Home from "./components/Home.svelte";
+  import Background from "./components/Background.svelte";
+  import Home from "./pages/Home.svelte";
+  import Projects from "./pages/Projects.svelte";
 </script>
 
-<main>
-  <Home />
-</main>
+<Home />
+<Projects />
 
 <style>
-  main {
-    width: 100%;
-    height: 100vh;
+  :global(html, body) {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth; /* For smooth scrolling */
+  }
+  
+  :global(body) {
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; /* Makes sections snap when scrolling */
   }
 </style>

@@ -1,8 +1,19 @@
-:root {
-  font-family: 'Martian Mono', monospace;
-  font-weight: lighter;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth; /* For smooth scrolling */
 }
 
-h1, h2 {
-  margin: 0;
+body {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory; /* Makes sections snap when scrolling */
+}
+
+#app > * {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
 }
