@@ -1,13 +1,14 @@
 DROP TABLE IF EXISTS projects;
 DROP TABLE IF EXISTS languages;
-DROP TABLE IF EXISTS technology;
+DROP TABLE IF EXISTS technologies;
 DROP TABLE IF EXISTS project_languages;
 DROP TABLE IF EXISTS project_technologies;
 
 CREATE TABLE projects (
   project_id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT NOT NULL,
-  desctiption TEXT NOT NULL,
+  description TEXT NOT NULL,
+  github_link TEXT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -16,7 +17,7 @@ CREATE TABLE languages (
   name TEXT NOT NULL UNIQUE
 );
 
-CREATE TABLE technology (
+CREATE TABLE technologies (
   technolgoy_id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL UNIQUE
 );
