@@ -64,3 +64,8 @@ jobs:
 
       - name: Show Lint Results
         run: cat hadolint-results.sarif
+
+      - name: Lint docker-compose.yml
+        uses: isbang/compose-action@v1.5.1
+        with:
+          compose-file: "./docker-compose.yml"
