@@ -65,7 +65,14 @@ jobs:
       - name: Show Lint Results
         run: cat hadolint-results.sarif
 
-      - name: Lint docker-compose.yml
+  docker-compose-lint:
+    name: Lint docker-compose.ymal
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run Lint
         uses: isbang/compose-action@v1.5.1
         with:
-          compose-file: "./docker-compose.yml"
+          compose-file: "./docker-compose.ymal"
