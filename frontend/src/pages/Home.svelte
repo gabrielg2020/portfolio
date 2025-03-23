@@ -42,6 +42,7 @@
 
   h2 {
     font-size: 2rem;
+    font-weight: 400;
     margin-top: 0.5rem;
     margin-bottom: 2vh;
   }

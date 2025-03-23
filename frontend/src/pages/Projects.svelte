@@ -39,4 +39,8 @@
   h1 {
     margin-bottom: 2vh;
   }
+
+  h4 {
+    font-weight: 400;
+  }
 </style>
