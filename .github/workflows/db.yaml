@@ -44,9 +44,9 @@ jobs:
 
       - name: Insert Data
         run: |
-          backend/database/portfolio.db < backend/database/data/01_projects.sql
-          backend/database/portfolio.db < backend/database/data/02_languages.sql
-          backend/database/portfolio.db < backend/database/data/03_technologies.sql
+          sqlite3 backend/database/portfolio.db < backend/database/data/01_projects.sql
+          sqlite3 backend/database/portfolio.db < backend/database/data/02_languages.sql
+          sqlite3 backend/database/portfolio.db < backend/database/data/03_technologies.sql
           
 
 
