@@ -87,7 +87,7 @@ jobs:
           cache-to: type=gha,mode=max
 
   test-docker-compose:
-    name: Build Docker Image
+    name: Test docker-compose
     runs-on: ubuntu-latest
     needs: build
     steps:
