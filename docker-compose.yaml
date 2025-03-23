@@ -1,5 +1,5 @@
 services:
-  build:
+  portfolio-build:
     build:
       context: .
       dockerfile: Dockerfile.build
