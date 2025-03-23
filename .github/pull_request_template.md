@@ -1,6 +1,6 @@
 ## Description
 
-A clear consise description of the changes.
+A clear concise description of the changes.
 
 ## Type of Change
 
