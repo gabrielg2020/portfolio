@@ -99,7 +99,7 @@ jobs:
 
     - name: Run Build
       run: |
-        docker compose up build
+        docker compose up portfolio-build
 
     - name: Close Build
       run: |
