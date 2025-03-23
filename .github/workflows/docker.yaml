@@ -7,6 +7,8 @@ jobs:
   check-dockerfile-changes:
     name: Check for Dockerfile Changes
     runs-on: ubuntu-latest
+    outputs:
+      dockerfile_changed: ${{ steps.check-dockerfile.outputs.dockerfile_changed }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -45,7 +47,9 @@ jobs:
   dockerfile-build:
     name: Build Docker Image
     runs-on: ubuntu-latest
-    needs: dockerfile-lint
+    needs: 
+      - check-dockerfile-changes
+      - dockerfile-lint
     if: needs.check-dockerfile-changes.outputs.dockerfile_changed == 'true'
     steps:
       - name: Checkout code
