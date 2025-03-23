@@ -21,13 +21,11 @@ FROM golang:1.23.2-alpine AS backend-builder
 
 WORKDIR /app
 
-COPY /backend/go.mod /backend/go.sum ./
+# Copy source code
+COPY backend/ ./
 
 # Download dependencies
 RUN go mod download
-
-# Copy source code
-COPY backend/ ./
 
 # Remove local static files that go copied
 RUN rm -rf static
