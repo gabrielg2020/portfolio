@@ -1,9 +1,22 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
+import fs from 'fs'
+import path from 'path'
+
+const preserveGitkeepPlugin = () => {
+  return {
+    name: 'preserve-gitkeep',
+    closeBundle() {
+      const gitkeepPath = path.resolve('../backend/static/.gitkeep')
+      // Create the .gitkeep file
+      fs.writeFileSync(gitkeepPath, '')
+    }
+  }
+}
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [svelte()],
+  plugins: [svelte(), preserveGitkeepPlugin()],
   build: {
     // Output to the backend's static directory when building
     outDir: '../backend/static',
