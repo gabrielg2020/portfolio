@@ -13,6 +13,7 @@ import (
 
 func HelloHandler(c *gin.Context) {
 	db := openDatabase()
+	defer db.Close()
 
 	start := time.Now()
 	err := db.Ping()
@@ -31,9 +32,10 @@ func HelloHandler(c *gin.Context) {
 
 func GetProjects(c *gin.Context) {
 	db := openDatabase()
+	defer db.Close()
 
 	// Query database
-	rows, err := db.Query("SELECT title, description, github_link FROM projects")
+	rows, err := db.Query("SELECT project_id, title, description, github_link FROM projects")
 	if err != nil {
 		log.Fatalf("Failed to query projects: %v", err)
 	}
@@ -43,11 +45,12 @@ func GetProjects(c *gin.Context) {
 
 	// Grab all projects
 	for rows.Next() {
-		var title, description, githubLink string
-		if err := rows.Scan(&title, &description, &githubLink); err != nil {
+		var projectID, title, description, githubLink string
+		if err := rows.Scan(&projectID, &title, &description, &githubLink); err != nil {
 			log.Fatalf("Failed to scan project: %v", err)
 		}
 		project := map[string]interface{}{
+			"id":          projectID,
 			"title":       title,
 			"description": description,
 			"githubLink":  githubLink,
@@ -70,7 +73,6 @@ func openDatabase() *sql.DB {
 	if err != nil {
 		log.Fatalf("Failed to open database: %v", err)
 	}
-	defer db.Close()
 
 	db.SetConnMaxLifetime(5 * time.Second)
 
