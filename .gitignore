@@ -86,3 +86,6 @@ backend/static/*
 tmp/
 temp/
 .hidden/
+
+# Database
+*.db
