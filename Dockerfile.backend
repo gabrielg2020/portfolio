@@ -10,8 +10,9 @@ RUN go mod download
 # Copy source code
 COPY backend/ ./backend/
 
-# Create empty static directory if it doesn't exist
+# Create empty static & database directories if they doesn't exist
 RUN mkdir -p /app/backend/static
+RUN mkdir -p /app/backend/database
 
 # Build backend
 RUN CGO_ENABLED=0 GOOS=linux go build -o /app/server ./backend
