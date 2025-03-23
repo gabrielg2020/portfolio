@@ -37,16 +37,16 @@ jobs:
         run: sudo apt install sqlite3
 
       - name: Create database file
-        run: touch /backend/database/portfolio.db
+        run: touch backend/database/portfolio.db
 
       - name: Run Schema
-        run: sqlite3 backend/database/portfolio.db < database/schema.sql
+        run: sqlite3 backend/database/portfolio.db < backend/database/schema.sql
 
       - name: Insert Data
         run: |
-          backend/database/portfolio.db < database/data/01_projects.sql
-          backend/database/portfolio.db < database/data/02_languages.sql
-          backend/database/portfolio.db < database/data/03_technologies.sql
+          backend/database/portfolio.db < backend/database/data/01_projects.sql
+          backend/database/portfolio.db < backend/database/data/02_languages.sql
+          backend/database/portfolio.db < backend/database/data/03_technologies.sql
           
 
 
