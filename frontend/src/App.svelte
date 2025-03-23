@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Background from "./components/Background.svelte";
   import Home from "./pages/Home.svelte";
   import Projects from "./pages/Projects.svelte";
 </script>

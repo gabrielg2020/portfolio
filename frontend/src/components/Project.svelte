@@ -17,7 +17,7 @@
     <div class="footer-wrapper">
       <h4>Languages</h4>
       <div class="image-wrapper">
-        {#each langauges as language}
+        {#each langauges as language (language)}
         <img alt="logo of {language}" src="images/{language}.svg"/>
       {/each}
       </div>
@@ -25,7 +25,7 @@
     <div class="footer-wrapper">
       <h4>Technologies</h4>
       <div class="image-wrapper">
-        {#each technologies as technology}
+        {#each technologies as technology (technology)}
           <img alt="logo of {technology}" src="/images/{technology}.svg"/>
         {/each}
       </div>
