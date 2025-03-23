@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/gabrielg2020/portfolio/backend/routes"
 	"log"
+
+	"github.com/gabrielg2020/backend/routes"
 )
 
 func main() {

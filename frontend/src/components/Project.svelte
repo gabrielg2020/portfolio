@@ -26,7 +26,7 @@
       <h4>Technologies</h4>
       <div class="image-wrapper">
         {#each technologies as technology}
-          <img alt="logo of {technology}" src="images/{technology}.svg"/>
+          <img alt="logo of {technology}" src="/images/{technology}.svg"/>
         {/each}
       </div>
     </div>
@@ -37,6 +37,14 @@
   .project {
     font-family: "Martian Mono", monospace;
     border: 1px red solid;
+  }
+
+  p {
+    font-weight: 200;
+  }
+
+  h4 {
+    font-weight: 400;
   }
 
   .image-wrapper {
