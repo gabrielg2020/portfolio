@@ -1,24 +1,13 @@
 services:
-  frontend-build:
+  build:
     build:
       context: .
-      dockerfile: Dockerfile.frontend
-    volumes:
-      - ./backend/static:/app/dist
-
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile.backend
+      dockerfile: Dockerfile.build
     ports:
       - "8080:8080"
-    depends_on:
-      - frontend-build
-    # NOTE: Comment out volumes for this build when deploying!
     volumes:
-      - ./backend:/app/backend
-      - ./backend/static:/app/backend/static
-      - ./backend/database:/app/backend/database
+      # Use local build
+      - ./backend/static:/app/static
 
   # Development
   frontend-dev:
