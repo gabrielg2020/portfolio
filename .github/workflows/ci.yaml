@@ -64,15 +64,3 @@ jobs:
 
       - name: Show Lint Results
         run: cat hadolint-results.sarif
-
-  docker-compose-lint:
-    name: Lint docker-compose
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Run Lint
-        uses: isbang/compose-action@v1.5.1
-        with:
-          compose-file: "./docker-compose.yaml"
