@@ -4,12 +4,14 @@ on:
   workflow_call:
 
 jobs:
-  go-lint:
-    name: Lint Go Code
+  check-backend-changes:
+    name: Check for backend Changes
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Check for backend changes
         id: check-backend
@@ -19,6 +21,13 @@ jobs:
           else
             echo "backend_changed=false" >> $GITHUB_OUTPUT
           fi
+  
+  go-lint:
+    name: Lint Go Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Setup Go
         uses: actions/setup-go@v3

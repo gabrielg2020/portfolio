@@ -7,8 +7,6 @@ jobs:
   check-dockerfile-changes:
     name: Check for Dockerfile Changes
     runs-on: ubuntu-latest
-    outputs:
-      dockerfile_changed: ${{ steps.check-dockerfile.outputs.dockerfile_changed }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

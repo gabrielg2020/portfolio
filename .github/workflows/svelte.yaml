@@ -4,8 +4,8 @@ on:
   workflow_call:
 
 jobs:
-  svelte-lint:
-    name: Lint Svelte Code
+  check-svelte-changes:
+    name: Check for Svelte Changes
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -14,13 +14,22 @@ jobs:
           fetch-depth: 0
 
       - name: Check for frontend changes
-        id: check-frontend
+        id: check-dockerfile
         run: |
           if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q "^frontend/"; then
             echo "frontend_changed=true" >> $GITHUB_OUTPUT
           else
             echo "frontend_changed=false" >> $GITHUB_OUTPUT
           fi
+
+  svelte-lint:
+    name: Lint Svelte Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
