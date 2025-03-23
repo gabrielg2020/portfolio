@@ -20,3 +20,7 @@ jobs:
   docker:
     name: Docker Workflow
     uses: ./.github/workflows/docker.yaml
+
+  documentation:
+    name: Documentation Workflow
+    uses: ./.github/workflows/docs.yaml
