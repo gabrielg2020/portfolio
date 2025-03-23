@@ -32,28 +32,31 @@ COPY backend/ ./
 # Remove local static files that go copied
 RUN rm -rf static
 
+# Install C compiler
 RUN apk add --no-cache gcc musl-dev
 
 # Build backend
 RUN CGO_ENABLED=1 GOOS=linux go build -o bin/server
 
-# --- Stage 3: Copy static files from frontend to backend ---
+# --- Stage 3: Run server! ---
 
 FROM alpine:latest
 
 WORKDIR /app
 
+# Copy static files from frontend-builder
 COPY --from=frontend-builder /backend/static ./static
 
-# --- Stage 4: Get the executable & database and run! ---
-
+# Copy binary from backend-builder
 COPY --from=backend-builder /app/bin/server /app/server
 
+# Copy database files from source
 COPY /backend/database /app/database
 
-RUN ls
-
 EXPOSE 8080
+
+# Set GIN to release
+ENV GIN_MODE=release
 
 # Run server
 CMD [ "/app/server" ]
