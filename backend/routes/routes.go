@@ -20,14 +20,14 @@ func SetupRouter() *gin.Engine {
 	}
 
 	// Serve static files
-	router.Static("/assets", "./backend/static/assets")
+	router.Static("/assets", "./static/assets")
 
 	// Serve index.html for any unmatched routes
 	router.NoRoute(func(ctx *gin.Context) {
 		reqPath := ctx.Request.URL.Path
 
 		// Check if the static directory exists and if index.html is there
-		indexPath := "./backend/static/index.html"
+		indexPath := "./static/index.html"
 		absPath, _ := filepath.Abs(indexPath)
 		log.Printf("Looking for index.html at: %s", absPath)
 
