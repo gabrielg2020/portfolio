@@ -10,7 +10,7 @@ CREATE TABLE projects (
   description TEXT NOT NULL,
   github_link TEXT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+)
 
 CREATE TABLE languages (
   language_id INTEGER PRIMARY KEY AUTOINCREMENT,
