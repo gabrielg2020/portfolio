@@ -97,9 +97,18 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: build
+    - name: Run Build
       run: |
-        docker compose -f docker-compose.yaml build
-    - name: dev
+        docker compose up build
+
+    - name: Close Build
       run: |
-        docker compose -f docker-compose.yaml frontend-dev backend-dev docs-dev
+        docker compose down
+
+    - name: Run Dev
+      run: |
+        docker compose up frontend-dev backend-dev docs-dev
+
+    - name: Close Dev
+      run: |
+        docker compose down
