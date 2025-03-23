@@ -18,7 +18,7 @@ jobs:
             echo "backend_changed=true" >> $GITHUB_OUTPUT
           else
             echo "backend_changed=false" >> $GITHUB_OUTPUT
-          f
+          fi
 
       - name: Setup Go
         uses: actions/setup-go@v3
