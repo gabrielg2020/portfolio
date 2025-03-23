@@ -57,7 +57,7 @@ jobs:
       - name: Run Lint
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: Dockerfile
+          dockerfile: Dockerfile.build
           format: sarif
           output-file: hadolint-results.sarif
           no-fail: true
