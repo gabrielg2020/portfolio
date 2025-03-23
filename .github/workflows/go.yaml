@@ -18,7 +18,7 @@ jobs:
       - name: Check for backend changes
         id: check-backend
         run: |
-          if git diff --name-only origin/${{ github.event.pull_request.base.ref }} ${{ github.sha }} | grep -q "^backend/\(database\)\@!"; then
+          if git diff --name-only origin/${{ github.event.pull_request.base.ref }} ${{ github.sha }} | grep -qP "^backend/(?!database/)"; then
             echo "backend_changed=true" >> $GITHUB_OUTPUT
           else
             echo "backend_changed=false" >> $GITHUB_OUTPUT
