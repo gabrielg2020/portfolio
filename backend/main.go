@@ -8,9 +8,7 @@ import (
 
 func main() {
 	router := routes.SetupRouter()
+	router.Run(":8080")
 
 	log.Println("Server starting on :8080")
-	if err := router.Run(":8080"); err != nil {
-		log.Fatal("Failed to start server: ", err)
-	}
 }
