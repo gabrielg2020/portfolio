@@ -15,14 +15,14 @@ func SetupRouter() *gin.Engine {
 
 	// API routes
 	api := router.Group("/api")
-	{
+	{a
 		api.GET("/hello", handlers.HelloHandler)
 	}
 
 	// Serve static files
 	router.Static("/assets", "./static/assets")
 	router.Static("/images", "./static/images")
-	
+
 
 	// Serve index.html for any unmatched routes
 	router.NoRoute(func(ctx *gin.Context) {

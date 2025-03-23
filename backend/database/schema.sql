@@ -15,7 +15,7 @@ CREATE TABLE projects (
 CREATE TABLE languages (
   language_id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL UNIQUE
-);
+);a
 
 CREATE TABLE technologies (
   technolgoy_id INTEGER PRIMARY KEY AUTOINCREMENT,
