@@ -1,0 +1,53 @@
+name: Database Workflow
+
+on:
+  workflow_call:
+
+jobs:
+  check-db-changes:
+    name: Check for Database Changes
+    runs-on: ubuntu-latest
+    outputs:
+      db_changed: ${{ steps.check-dockerfile.outputs.db_changed }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Check for Database changes
+        id: check-dockerfile
+        run: |
+          if git diff --name-only origin/${{ github.event.pull_request.base.ref }} ${{ github.sha }} | grep -q "Dockerfile.build"; then
+            echo "db_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "db_changed=false" >> $GITHUB_OUTPUT
+          fi
+
+  build-db:
+    name: Build Database
+    runs-on: ubuntu-latest
+    needs: check-db-changes
+    if: needs.check-db-changes.outputs.db_changed == 'true'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install SQLite3
+        run: sudo apt install sqlite3
+
+      - name: Create database file
+        run: touch /backend/database/portfolio.db
+
+      - name: Run Schema
+        run: sqlite3 backend/database/portfolio.db < database/schema.sql
+
+      - name: Insert Data
+        run: |
+          backend/database/portfolio.db < database/data/01_projects.sql
+          backend/database/portfolio.db < database/data/02_languages.sql
+          backend/database/portfolio.db < database/data/03_technologies.sql
+          
+
+
+      
