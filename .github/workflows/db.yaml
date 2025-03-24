@@ -36,14 +36,8 @@ jobs:
       - name: Create database file
         run: touch backend/database/portfolio.db
 
-      - name: Run Schema
-        run: sqlite3 backend/database/portfolio.db < backend/database/schema.sql
-
-      - name: Insert Data
-        run: |
-          sqlite3 backend/database/portfolio.db < backend/database/data/01_projects.sql
-          sqlite3 backend/database/portfolio.db < backend/database/data/02_languages.sql
-          sqlite3 backend/database/portfolio.db < backend/database/data/03_technologies.sql
+      - name: Run rebuild script
+        run: ./backend/database/rebuild_db.sh
           
 
 
