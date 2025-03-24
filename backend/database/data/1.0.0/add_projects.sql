@@ -22,7 +22,7 @@ VALUES ('Maze Visualiser','Lorem ipsum dolor sit amet, consectetur adipiscing el
 
 INSERT INTO project_languages (project_id, language_id, position)
 VALUES 
-    (3, 5, 1); -- vbnet
+    (3, 3, 1); -- vbnet
 
 -- 4- portfolio
 INSERT INTO projects (title, description, github_link)
@@ -31,12 +31,12 @@ VALUES ('Portfolio','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
 INSERT INTO project_languages (project_id, language_id, position)
 VALUES 
     (4, 1, 1), -- go
-    (4, 2, 2), -- typescript
-    (4, 4, 3); -- sql
+    (4, 2, 2); -- typescript
 
 INSERT INTO project_technologies (project_id, technology_id, position)
 VALUES 
     (4, 1, 1), -- svelte
-    (4, 2, 2); -- docker
+    (4, 2, 2), -- docker
+    (4, 3, 3); -- sqlite
 
 COMMIT;
