@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 database_file=database/portfolio.db
 
