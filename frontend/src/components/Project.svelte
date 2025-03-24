@@ -2,7 +2,7 @@
   export let title: string = "Project Name";
   export let description: string =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultricies placerat interdum. Vivamus sed velit mattis, mattis lectus sed, maximus dolor. Quisque pulvinar tincidunt lacus, quis cursus nibh pretium eget. Proin porta mi at pulvinar maximus.";
-  export let langauges: string[] = ["go", "ts"];
+  export let langauges: string[] = ["go", "typescript"];
   export let technologies: string[] = ["docker", "svelte"];
 </script>
 

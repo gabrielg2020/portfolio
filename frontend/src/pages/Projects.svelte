@@ -3,8 +3,14 @@
 
   import { onMount } from "svelte";
 
-  let projects: { id:number, description: string; githubLink: string; title: string }[] =
-    [];
+  let projects: {
+    id: number;
+    description: string;
+    githubLink: string;
+    title: string;
+    languages: string[];
+    technologies: string[];
+  }[] = [];
   let error: string | null = null;
 
   onMount(async () => {
@@ -39,7 +45,7 @@
     {:else}
       <div class="projects-wrapper">
         {#each projects as project (project.id)}
-          <Project title={project.title} description={project.description} />
+          <Project title={project.title} description={project.description} langauges={project.languages} technologies={project.technologies} />
         {/each}
       </div>
     {/if}
@@ -63,7 +69,6 @@
 
   .projects-wrapper {
     display: flex;
-
   }
 
   h1,

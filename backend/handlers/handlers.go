@@ -77,7 +77,6 @@ func GetProjects(c *gin.Context) {
 		}
 
 		projects = append(projects, project)
-		fmt.Print(project)
 
 		if err := rows.Err(); err != nil {
 			log.Fatalf("Error iterating over rows: %v", err)
