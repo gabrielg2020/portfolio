@@ -76,18 +76,18 @@ func GetProjects(c *gin.Context) {
 			"technologies": technologies,
 		}
 
-		projects := append(projects, project)
+		projects = append(projects, project)
 		fmt.Print(project)
 
 		if err := rows.Err(); err != nil {
 			log.Fatalf("Error iterating over rows: %v", err)
 		}
-
-		// Return Data
-		c.JSON(http.StatusOK, gin.H{
-			"projects": projects,
-		})
 	}
+
+	// Return Data
+	c.JSON(http.StatusOK, gin.H{
+		"projects": projects,
+	})
 }
 
 func openDatabase() *sql.DB {
