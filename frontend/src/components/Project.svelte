@@ -22,14 +22,16 @@
         {/each}
       </div>
     </div>
-    <div class="footer-wrapper">
-      <h4>Technologies</h4>
-      <div class="image-wrapper">
-        {#each technologies as technology (technology)}
+    {#if technologies && technologies.length > 0}
+      <div class="footer-wrapper">
+        <h4>Technologies</h4>
+        <div class="image-wrapper">
+          {#each technologies as technology (technology)}
           <img alt="logo of {technology}" src="/images/{technology}.svg" />
-        {/each}
+          {/each}
+        </div>
       </div>
-    </div>
+    {/if}
   </div>
 </div>
 
