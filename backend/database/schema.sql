@@ -18,7 +18,7 @@ CREATE TABLE languages (
 );
 
 CREATE TABLE technologies (
-  technolgoy_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  technology_id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL UNIQUE
 );
 
