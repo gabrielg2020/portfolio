@@ -1,13 +1,17 @@
 <script lang="ts">
+  import Experinece from "../components/Experinece.svelte";
   import JumpButton from "../components/JumpButton.svelte";
 </script>
 
 <div id="experiences">
   <div class="header">
     <h1>Work Experience</h1>
-    <h4>Open them up to learn more!</h4>
   </div>
-  <div class="experiences-wrapper"></div>
+  <div class="experiences-wrapper">
+    <Experinece />
+    <Experinece />
+    <Experinece />
+  </div>
   <div class="footer">
     <JumpButton text="Contact me!" location="contact" />
   </div>
@@ -28,23 +32,19 @@
     margin-bottom: 3vh; /* Space between header and projects */
   }
 
+  .experiences-wrapper {
+    display: flex;
+    gap: 1rem;
+  }
+
   .footer {
     display: flex;
     justify-content: center;
     padding-top: 5vh;
   }
 
-  h1,
-  h4 {
+  h1 {
     font-family: "Martian Mono", monospace;
     margin: 0;
-  }
-
-  h1 {
-    margin-bottom: 2vh;
-  }
-
-  h4 {
-    font-weight: 400;
   }
 </style>
