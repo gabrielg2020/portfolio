@@ -69,6 +69,6 @@ func GetExperiences(c *gin.Context) {
 
 	// Return Data
 	c.JSON(http.StatusOK, gin.H{
-		"experinces": experiences,
+		"experiences": experiences,
 	})
 }

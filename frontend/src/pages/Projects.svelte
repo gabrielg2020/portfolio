@@ -16,14 +16,12 @@
 
   onMount(async () => {
     try {
-      console.log("Requesting");
       const response = await fetch("/api/projects");
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
       projects = data.projects;
-      console.log(projects);
     } catch (err) {
       console.error("Failed to fetch projects:", err);
       if (err instanceof Error) {

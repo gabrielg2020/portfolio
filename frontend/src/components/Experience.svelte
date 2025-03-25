@@ -25,22 +25,26 @@
       {/each}
     </ul>
     <div class="content-wrapper">
-      <div class="languages">
-        <h4>Languages</h4>
-        <div class="image-wrapper">
-          {#each langauges as langauge (langauge)}
-            <img alt="{langauge} logo" src="/images/{langauge}.svg" />
-          {/each}
+      {#if langauges && langauges.length > 0}
+        <div class="languages">
+          <h4>Languages</h4>
+          <div class="image-wrapper">
+            {#each langauges as langauge (langauge)}
+              <img alt="{langauge} logo" src="/images/{langauge}.svg" />
+            {/each}
+          </div>
         </div>
-      </div>
-      <div class="technologies">
-        <h4>Technologies</h4>
-        <div class="image-wrapper">
-          {#each technologies as technology (technology)}
-            <img alt="{technology} logo" src="/images/{technology}.svg" />
-          {/each}
+      {/if}
+      {#if technologies && technologies.length > 0}
+        <div class="technologies">
+          <h4>Technologies</h4>
+          <div class="image-wrapper">
+            {#each technologies as technology (technology)}
+              <img alt="{technology} logo" src="/images/{technology}.svg" />
+            {/each}
+          </div>
         </div>
-      </div>
+      {/if}
     </div>
   </div>
   <div class="footer"></div>
@@ -60,7 +64,7 @@
     align-items: center;
   }
 
-  p {
+  li {
     font-weight: 200;
   }
 
