@@ -37,7 +37,7 @@ jobs:
         run: touch backend/database/portfolio.db
 
       - name: Run rebuild script
-        run: ./backend/database/rebuild_db.sh
+        run: ./backend/database/rebuild_db.sh -p backend/database
           
 
 
