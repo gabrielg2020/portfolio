@@ -45,6 +45,9 @@ func GetExperiences(c *gin.Context) {
 			technologies = utils.ParseStringSlice(technologiesStr.String)
 		}
 
+		// Place points into a slice
+		points := []string{pointOne, pointTwo, pointThree}
+
 		// Instert data into JSON format
 		experience := map[string]interface{}{
 			"id":           experienceID,
@@ -52,9 +55,7 @@ func GetExperiences(c *gin.Context) {
 			"role":         role,
 			"yearStart":    yearStart,
 			"yearEnd":      yearEnd,
-			"pointOne":     pointOne,
-			"pointTwo":     pointTwo,
-			"pointThree":   pointThree,
+			"points":     points,
 			"languages":    languages,
 			"technologies": technologies,
 		}
