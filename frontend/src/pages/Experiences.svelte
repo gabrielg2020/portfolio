@@ -5,7 +5,7 @@
 
 <div id="experiences">
   <div class="header">
-    <h1>Work Experience</h1>
+    <h1>Experiences</h1>
   </div>
   <div class="experiences-wrapper">
     <Experinece />
