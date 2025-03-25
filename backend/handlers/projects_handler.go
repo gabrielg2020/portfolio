@@ -2,10 +2,8 @@ package handlers
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"net/http"
-	"time"
 
 	"github.com/gabrielg2020/backend/queries"
 	"github.com/gabrielg2020/backend/utils"
@@ -13,27 +11,8 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func HelloHandler(c *gin.Context) {
-	db := openDatabase()
-	defer db.Close()
-
-	start := time.Now()
-	err := db.Ping()
-	elapsed := time.Since(start)
-
-	if err != nil {
-		log.Fatalf("Failed to ping database: %v", err)
-	}
-
-	fmt.Printf("Successfully pinged SQLite database in %v\n", elapsed)
-
-	c.JSON(http.StatusOK, gin.H{
-		"message": "Connected to database",
-	})
-}
-
 func GetProjects(c *gin.Context) {
-	db := openDatabase()
+	db := utils.OpenDatabase()
 	defer db.Close()
 
 	var projects []map[string]interface{}
@@ -87,15 +66,4 @@ func GetProjects(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"projects": projects,
 	})
-}
-
-func openDatabase() *sql.DB {
-	db, err := sql.Open("sqlite3", "./database/portfolio.db")
-	if err != nil {
-		log.Fatalf("Failed to open database: %v", err)
-	}
-
-	db.SetConnMaxLifetime(5 * time.Second)
-
-	return db
 }
