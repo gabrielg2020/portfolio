@@ -25,7 +25,7 @@ WORKDIR /app
 COPY backend/ ./
 
 # Remove source database and create a clean one
-RUN rm database/portfolio.db && touch database/portfolio.db
+RUN [ -f database/portfolio.db ] && rm database/portfolio.db || true && touch database/portfolio.db
 
 # Install sqlite3
 RUN apk add --no-cache sqlite sqlite-libs
