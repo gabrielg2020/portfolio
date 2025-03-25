@@ -45,7 +45,13 @@
     {:else}
       <div class="projects-wrapper">
         {#each projects as project (project.id)}
-          <Project title={project.title} description={project.description} langauges={project.languages} technologies={project.technologies} />
+          <Project
+            title={project.title}
+            description={project.description}
+            langauges={project.languages}
+            technologies={project.technologies}
+            githubLink={project.githubLink}
+          />
         {/each}
       </div>
     {/if}
@@ -69,6 +75,7 @@
 
   .projects-wrapper {
     display: flex;
+    gap: 1rem;
   }
 
   h1,
