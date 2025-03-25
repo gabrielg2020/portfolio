@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Button from "../components/JumpButton.svelte";
+  import JumpButton from "../components/JumpButton.svelte";
 </script>
 
 <div id="home">
@@ -8,7 +8,7 @@
       <h1>Gabriel Guimaraes</h1>
       <h2>Software Engineer</h2>
     </div>
-    <Button text="Take a look at my projects!" location="projects"/>
+    <JumpButton text="Take a look at my projects!" location="projects"/>
   </div>
 </div>
 

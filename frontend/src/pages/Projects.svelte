@@ -1,5 +1,6 @@
 <script lang="ts">
   import Project from "../components/Project.svelte";
+  import JumpButton from "../components/JumpButton.svelte";
 
   import { onMount } from "svelte";
 
@@ -15,14 +16,12 @@
 
   onMount(async () => {
     try {
-      console.log("Requesting");
       const response = await fetch("/api/projects");
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
       projects = data.projects;
-      console.log(projects);
     } catch (err) {
       console.error("Failed to fetch projects:", err);
       if (err instanceof Error) {
@@ -56,6 +55,9 @@
       </div>
     {/if}
   </div>
+  <div class="footer">
+    <JumpButton text="Take a look at my experiences!" location="experiences"/>
+  </div>
 </div>
 
 <style>
@@ -71,6 +73,12 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 3vh; /* Space between header and projects */
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 5vh;
   }
 
   .projects-wrapper {
