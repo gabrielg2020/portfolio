@@ -1,5 +1,6 @@
 <script lang="ts">
   import Project from "../components/Project.svelte";
+  import JumpButton from "../components/JumpButton.svelte";
 
   import { onMount } from "svelte";
 
@@ -56,6 +57,9 @@
       </div>
     {/if}
   </div>
+  <div class="footer">
+    <JumpButton text="Take a look at my work experience!" location="experience"/>
+  </div>
 </div>
 
 <style>
@@ -71,6 +75,12 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 3vh; /* Space between header and projects */
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 5vh;
   }
 
   .projects-wrapper {
