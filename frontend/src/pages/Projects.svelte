@@ -58,7 +58,7 @@
     {/if}
   </div>
   <div class="footer">
-    <JumpButton text="Take a look at my work experience!" location="experience"/>
+    <JumpButton text="Take a look at my work experience!" location="experiences"/>
   </div>
 </div>
 
