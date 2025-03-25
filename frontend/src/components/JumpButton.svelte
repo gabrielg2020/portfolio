@@ -1,9 +1,12 @@
 <script lang="ts">
-  import { ArrowDown } from "@lucide/svelte";
+  import { ArrowDown, ArrowUp } from "@lucide/svelte";
 
   export let text: string = "Button";
   export let location: string = "home";
-  const icon = ArrowDown;
+  export let arrowDirection: string = "down"
+
+  $: icon = arrowDirection === "down" ? ArrowDown : ArrowUp;
+  
 </script>
 
 <a href="#{location}">
