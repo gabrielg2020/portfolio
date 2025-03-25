@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Contact from "./pages/Contact.svelte";
   import Experiences from "./pages/Experiences.svelte";
   import Home from "./pages/Home.svelte";
   import Projects from "./pages/Projects.svelte";
@@ -7,6 +8,7 @@
 <Home />
 <Projects />
 <Experiences />
+<Contact />
 
 <style>
   :global(html, body) {
