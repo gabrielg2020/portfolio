@@ -4,9 +4,6 @@
   import { onMount } from "svelte";
 
   export let title: string = "Project Title";
-  export let githubLink: string = "www.github.com/gabrielg2020";
-  export let languages: string[] = ["GoLang", "TypeScript"];
-  export let technologies: string[] = ["Docker", "Svelte"];
   export let smallDescription: string =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultricies placerat interdum. Vivamus sed velit mattis, Vivamus sed velit mattis, Vivamus sed velit.";
   export let largeDescription: string[] = [
@@ -14,6 +11,9 @@
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultricies placerat interdum. Vivamus sed velit mattis, Vivamus sed velit mattis, Vivamus sed velit.",
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultricies placerat interdum. Vivamus sed velit mattis, Vivamus sed velit mattis, Vivamus sed velit.",
   ];
+  export let githubLink: string = "www.github.com/gabrielg2020";
+  export let languages: string[] = ["GoLang", "TypeScript"];
+  export let technologies: string[] = ["Docker", "Svelte"];
 
   let isDesktop = false;
 
@@ -34,7 +34,7 @@
 <div class="project-card">
   <div class="header">
     <h2 class={isDesktop ? "h5" : "h6"}>{title}</h2>
-    <span class="icon action"><ExternalLink size=32/></span>
+    <span class="icon action"><ExternalLink size=27/></span>
   </div>
   {#if isDesktop}
     <div class="languages-technologies">

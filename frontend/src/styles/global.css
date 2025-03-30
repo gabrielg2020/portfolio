@@ -48,6 +48,10 @@ span.icon.action {
 #experiences,
 #contact {
   min-height: 100vh;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 #home> :first-child,
