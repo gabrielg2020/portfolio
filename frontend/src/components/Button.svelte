@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ExternalLink, Download, MoveUpRight } from "@lucide/svelte";
+  import { ExternalLink, Download } from "@lucide/svelte";
 
   export let text: string = "Text";
   export let iconStr: string = "Link";
@@ -18,7 +18,7 @@
 
 <style>
   div {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     cursor: pointer;
     gap: 8px;
