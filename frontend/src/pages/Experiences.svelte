@@ -11,7 +11,7 @@
   });
 </script>
 
-<div id="projects">
+<div id="experiences">
   <h1 class="h2">Experiences</h1>
   <div class="experiences">
     {#await experiences}
