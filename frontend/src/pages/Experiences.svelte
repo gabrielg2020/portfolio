@@ -1,95 +1,46 @@
 <script lang="ts">
-  import Experience from "../components/Experience.svelte";
-  import JumpButton from "../components/JumpButton.svelte";
-
+  import ExperienceCard from "../components/ExperienceCard.svelte";
   import { onMount } from "svelte";
+  import { GetExperiences } from "../services/apiService";
+  import type { Experience } from "../services/apiService";
 
-  let experiences: {
-    id: number;
-    company: string;
-    role: string;
-    yearEnd: string;
-    yearStart: string;
-    points: string[];
-    languages: string[];
-    technologies: string[];
-  }[] = [];
-  let error: string | null = null;
+  let experiences: Promise<Experience[]>;
 
-  onMount(async () => {
-    try {      
-      const response = await fetch("/api/experiences");
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      experiences = data.experiences;
-      console.log(data);
-    } catch (err) {
-      console.error("Failed to fetch experiences:", err);
-      if (err instanceof Error) {
-        error = err.message;
-      } else {
-        error = String(err);
-      }
-    }
+  onMount(() => {
+    experiences = GetExperiences();
   });
 </script>
 
 <div id="experiences">
-  <div class="header">
-    <h1>Experiences</h1>
-  </div>
-  {#if error}
-    <div class="error">{error}</div>
-  {:else}
-    <div class="experiences-wrapper">
-      {#each experiences as experience (experience.id)}
-        <Experience
-          company={experience.company}
-          role={experience.role}
+  <h1 class="h2">Experiences</h1>
+  <div class="experiences">
+    {#await experiences}
+      <p>Loading...</p>
+    {:then loadedExperiences}
+      {#each loadedExperiences as experience, index (index)}
+        <ExperienceCard
+          title={experience.title}
+          smallDescription={experience.smallDescription}
+          githubLink={experience.githubLink}
+          languages={experience.languages}
+          technologies={experience.technologies}
           yearStart={experience.yearStart}
           yearEnd={experience.yearEnd}
-          points={experience.points}
-          langauges={experience.languages}
-          technologies={experience.technologies}
         />
       {/each}
-    </div>
-  {/if}
-  <div class="footer">
-    <JumpButton text="Contact me!" location="contact" />
+    {:catch error}
+      <p>Error loading experiences: {error}</p>
+    {/await}
   </div>
 </div>
 
 <style>
-  #experiences {
+  .experiences {
     display: flex;
     flex-direction: column;
-    padding-top: 5vh; /* Add some top padding */
-  }
-
-  .header {
-    outline: 1px blue solid;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 3vh; /* Space between header and experiences */
-  }
-
-  .experiences-wrapper {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .footer {
-    display: flex;
     justify-content: center;
-    padding-top: 5vh;
-  }
-
-  h1 {
-    font-family: "Martian Mono", monospace;
-    margin: 0;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
   }
 </style>

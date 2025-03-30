@@ -1,25 +1,13 @@
 <script lang="ts">
-  import Contact from "./pages/Contact.svelte";
-  import Experiences from "./pages/Experiences.svelte";
+  import NavBar from "./components/NavBar.svelte";
   import Home from "./pages/Home.svelte";
   import Projects from "./pages/Projects.svelte";
+  import Experiences from "./pages/Experiences.svelte";
+  import Contact from "./pages/Contact.svelte";
 </script>
 
+<NavBar />
 <Home />
 <Projects />
 <Experiences />
 <Contact />
-
-<style>
-  :global(html, body) {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth; /* For smooth scrolling */
-  }
-
-  :global(body) {
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory; /* Makes sections snap when scrolling */
-  }
-</style>

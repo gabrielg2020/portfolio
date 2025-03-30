@@ -1,102 +1,44 @@
 <script lang="ts">
-  import Project from "../components/Project.svelte";
-  import JumpButton from "../components/JumpButton.svelte";
-
+  import ProjectCard from "../components/ProjectCard.svelte";
   import { onMount } from "svelte";
+  import { GetProjects } from "../services/apiService";
+  import type { Project } from "../services/apiService";
 
-  let projects: {
-    id: number;
-    description: string;
-    githubLink: string;
-    title: string;
-    languages: string[];
-    technologies: string[];
-  }[] = [];
-  let error: string | null = null;
+  let projects: Promise<Project[]>
 
-  onMount(async () => {
-    try {
-      const response = await fetch("/api/projects");
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      projects = data.projects;
-    } catch (err) {
-      console.error("Failed to fetch projects:", err);
-      if (err instanceof Error) {
-        error = err.message;
-      } else {
-        error = String(err);
-      }
-    }
-  });
+  onMount(() => {
+    projects = GetProjects()
+  })
 </script>
 
 <div id="projects">
-  <div class="header">
-    <h1>Project Showcase</h1>
-    <h4>Open them up to learn more!</h4>
-  </div>
-  <div class="projects-wrapper">
-    {#if error}
-      <div class="error">{error}</div>
-    {:else}
-      <div class="projects-wrapper">
-        {#each projects as project (project.id)}
-          <Project
-            title={project.title}
-            description={project.description}
-            langauges={project.languages}
-            technologies={project.technologies}
-            githubLink={project.githubLink}
-          />
-        {/each}
-      </div>
-    {/if}
-  </div>
-  <div class="footer">
-    <JumpButton text="Take a look at my experiences!" location="experiences"/>
+  <h1 class="h2">Projects</h1>
+  <div class="projects">
+    {#await projects}
+      <p>Loading...</p>
+    {:then loadedProjects}
+      {#each loadedProjects as project, index (index)}
+      <ProjectCard 
+        title={project.title} 
+        smallDescription={project.smallDescription} 
+        githubLink={project.githubLink} 
+        languages={project.languages} 
+        technologies={project.technologies} 
+      />
+      {/each}
+    {:catch error}
+      <p>Error loading projects: {error}</p>
+    {/await}
   </div>
 </div>
 
 <style>
-  #projects {
+  .projects {
     display: flex;
     flex-direction: column;
-    padding-top: 5vh; /* Add some top padding */
-  }
-
-  .header {
-    outline: 1px blue solid;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 3vh; /* Space between header and projects */
-  }
-
-  .footer {
-    display: flex;
     justify-content: center;
-    padding-top: 5vh;
-  }
-
-  .projects-wrapper {
-    display: flex;
-    gap: 1rem;
-  }
-
-  h1,
-  h4 {
-    font-family: "Martian Mono", monospace;
-    margin: 0;
-  }
-
-  h1 {
-    margin-bottom: 2vh;
-  }
-
-  h4 {
-    font-weight: 400;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
   }
 </style>
