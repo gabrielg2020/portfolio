@@ -18,10 +18,10 @@
       <p>Loading...</p>
     {:then loadedExperiences}
       {#each loadedExperiences as experience, index (index)}
-        {console.log(loadedExperiences)}
         <ExperienceCard
           title={experience.title}
           smallDescription={experience.smallDescription}
+          largeDescription={experience.largeDescription}
           githubLink={experience.githubLink}
           languages={experience.languages}
           technologies={experience.technologies}

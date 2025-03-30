@@ -18,9 +18,11 @@
       <p>Loading...</p>
     {:then loadedProjects}
       {#each loadedProjects as project, index (index)}
+      {console.log(project.largeDescription)}
       <ProjectCard 
         title={project.title} 
         smallDescription={project.smallDescription} 
+        largeDescription={project.largeDescription}
         githubLink={project.githubLink} 
         languages={project.languages} 
         technologies={project.technologies} 
