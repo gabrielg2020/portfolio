@@ -82,12 +82,12 @@
   font-size: 0.875rem;
   letter-spacing: 0.0125rem;
   font-weight: 500;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 .overline {
   font-size: 0.625rem;
   letter-spacing: 0.015rem;
   font-weight: 400;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
