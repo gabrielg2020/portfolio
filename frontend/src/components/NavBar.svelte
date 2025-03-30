@@ -44,7 +44,7 @@
     <!-- Navigation Links (visible on desktop) -->
     {#if !isMobile}
       <div class="nav-links">
-        {#each Object.entries(titleLinkMap) as [title, link]}
+        {#each Object.entries(titleLinkMap) as [title, link], index (index)}
           <a href="#{link}" class="sub-h2">{title}</a>
         {/each}
       </div>

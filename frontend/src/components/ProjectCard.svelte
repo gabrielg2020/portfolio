@@ -38,10 +38,10 @@
   </div>
   {#if isDesktop}
     <div class="languages-technologies">
-      {#each languages as language}
+      {#each languages as language, index (index)}
         <InfoTab text={language} />
       {/each}
-      {#each technologies as technology}
+      {#each technologies as technology, index (index)}
         <InfoTab text={technology} iconStr="box"/>
       {/each}
     </div>
@@ -51,7 +51,7 @@
       <p class="body-1">{smallDescription}</p>
     {:else}
       <ul class="description-list">
-        {#each largeDescription as point}
+        {#each largeDescription as point, index (index)}
           <li class="body-1">{point}</li>
         {/each}
       </ul>
@@ -59,10 +59,10 @@
   </div>
   {#if !isDesktop}
     <div class="languages-technologies">
-      {#each languages as language}
+      {#each languages as language, index (index)}
         <InfoTab text={language} />
       {/each}
-      {#each technologies as technology}
+      {#each technologies as technology, index (index)}
       <InfoTab text={technology} iconStr="box"/>
       {/each}
     </div>

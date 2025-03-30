@@ -17,7 +17,7 @@
     {#await experiences}
       <p>Loading...</p>
     {:then loadedExperiences}
-      {#each loadedExperiences as experience}
+      {#each loadedExperiences as experience, index (index)}
         <ExperienceCard
           title={experience.title}
           smallDescription={experience.smallDescription}

@@ -13,8 +13,6 @@ export interface Experience extends Project {
   yearEnd: string
 }
 
-let error: string | null = null;
-
 export const GetProjects = async (): Promise<Project[]> => {
   let projects: Project[] = []
   try {
@@ -26,11 +24,6 @@ export const GetProjects = async (): Promise<Project[]> => {
     projects = data.projects
   } catch (err) {
     console.error("Failed to fetch projects:", err);
-    if (err instanceof Error) {
-      error = err.message;
-    } else {
-      error = String(err);
-    }
   }
 
   return projects
@@ -47,11 +40,6 @@ export const GetExperiences = async (): Promise<Experience[]> => {
     experiences = data.experiences
   } catch (err) {
     console.error("Failed to fetch experiences:", err);
-    if (err instanceof Error) {
-      error = err.message;
-    } else {
-      error = String(err);
-    }
   }
 
   return experiences

@@ -25,7 +25,7 @@
       <span class="icon action" on:click={closeMenu}><X size="32" /></span>
     </div>
     <div class="sections">
-      {#each Object.entries(titleLinkMap) as [title, link]}
+      {#each Object.entries(titleLinkMap) as [title, link], index (index)}
         <a href="#{link}" class="h6">{title}</a>
       {/each}
     </div>

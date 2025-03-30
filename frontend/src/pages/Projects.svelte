@@ -17,7 +17,7 @@
     {#await projects}
       <p>Loading...</p>
     {:then loadedProjects}
-      {#each loadedProjects as project}
+      {#each loadedProjects as project, index (index)}
       <ProjectCard 
         title={project.title} 
         smallDescription={project.smallDescription} 
