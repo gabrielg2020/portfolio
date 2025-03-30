@@ -71,7 +71,7 @@
       <p class="body-1">{smallDescription}</p>
     {:else}
       <ul class="description-list">
-        {#each largeDescription as point}
+        {#each largeDescription as point, index (index)}
           <li class="body-1">{point}</li>
         {/each}
       </ul>
