@@ -12,12 +12,16 @@ CREATE TABLE projects (
   title TEXT NOT NULL,
   description TEXT NOT NULL,
   github_link TEXT,
+  point_one TEXT NOT NULL,
+  point_two TEXT NOT NULL,
+  point_three TEXT NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE experiences (
   experience_id INTEGER PRIMARY KEY AUTOINCREMENT,
   company TEXT NOT NULL,
+  description TEXT NOT NULL,
   role TEXT NOT NULL,
   year_start TEXT NOT NULL,
   year_end TEXT NOT NULL,
