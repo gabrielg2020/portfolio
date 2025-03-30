@@ -5,6 +5,12 @@
   --info-blue-transparent: rgba(33, 150, 243, 0.2);
 }
 
+#app {
+  height: 100vh;
+  background-color: var(--off-white);
+  padding: 1rem;
+}
+
 .dark {
   color: var(--off-white);
 }
