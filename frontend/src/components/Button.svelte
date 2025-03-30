@@ -25,8 +25,5 @@
     border: 2px solid var(--near-black);
     padding: 4px;
   }
-  span {
-    display: flex;
-    align-items: center;
-  }
+  
 </style>

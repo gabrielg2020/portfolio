@@ -11,6 +11,15 @@
   padding: 1rem;
 }
 
+span.icon {
+  display: flex;
+  align-items: center;
+}
+
+span.icon.action {
+  cursor: pointer;
+}
+
 .dark {
   color: var(--off-white);
 }
