@@ -78,6 +78,7 @@
   .wrapper {
     display: flex;
     flex-direction: column;
+    margin-top: 2rem
   }
 
   .header {

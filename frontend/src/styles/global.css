@@ -42,3 +42,7 @@ span.icon.action {
 .light {
   color: var(--near-black);
 }
+
+#home, #projects, #experiences, #contact {
+  height: 100vh;
+}

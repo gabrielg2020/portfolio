@@ -2,4 +2,7 @@
   import Hero from "../components/Hero.svelte";
 </script>
 
-<Hero />
+<div id="home">
+  <Hero />
+</div>
+
