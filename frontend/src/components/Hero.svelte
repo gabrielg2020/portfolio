@@ -82,6 +82,9 @@
   }
 
   .header {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
     padding-bottom: 10vh;
   }
 
