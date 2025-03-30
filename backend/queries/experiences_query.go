@@ -34,6 +34,7 @@ func GetExperiences(limit int) string {
 	return fmt.Sprintf(`SELECT
     e.experience_id,
     e.company,
+    e.description,
     e.role,
     e.year_start,
     e.year_end,

@@ -29,10 +29,10 @@ func GetExperiences(c *gin.Context) {
 
 	// Grab experiences
 	for rows.Next() {
-		var experienceID, company, role, yearStart, yearEnd, pointOne, pointTwo, pointThree string
+		var experienceID, company, description, role, yearStart, yearEnd, pointOne, pointTwo, pointThree string
 		var languagesStr, technologiesStr sql.NullString
 
-		if err := rows.Scan(&experienceID, &company, &role, &yearStart, &yearEnd, &pointOne, &pointTwo, &pointThree, &languagesStr, &technologiesStr); err != nil {
+		if err := rows.Scan(&experienceID, &company, &description, &role, &yearStart, &yearEnd, &pointOne, &pointTwo, &pointThree, &languagesStr, &technologiesStr); err != nil {
 			log.Fatalf("Failed to scan project: %v", err)
 		}
 
@@ -50,14 +50,15 @@ func GetExperiences(c *gin.Context) {
 
 		// Instert data into JSON format
 		experience := map[string]interface{}{
-			"id":           experienceID,
-			"company":      company,
-			"role":         role,
-			"yearStart":    yearStart,
-			"yearEnd":      yearEnd,
-			"points":     points,
-			"languages":    languages,
-			"technologies": technologies,
+			"id":               experienceID,
+			"company":          company,
+			"smallDescription": description,
+			"role":             role,
+			"yearStart":        yearStart,
+			"yearEnd":          yearEnd,
+			"longDescription":  points,
+			"languages":        languages,
+			"technologies":     technologies,
 		}
 
 		experiences = append(experiences, experience)
