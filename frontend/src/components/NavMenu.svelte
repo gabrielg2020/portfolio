@@ -88,7 +88,7 @@
     z-index: 99;
     width: 100vw;
     height: 100vh;
-    background-color: var(--medium-gray-transparent);
+    background-color: var(--off-white-transparent);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px); 
   }
