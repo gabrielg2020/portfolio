@@ -43,6 +43,17 @@ span.icon.action {
   color: var(--near-black);
 }
 
-#home, #projects, #experiences, #contact {
-  height: 100vh;
+#home,
+#projects,
+#experiences,
+#contact {
+  min-height: 100vh;
+}
+
+#home> :first-child,
+#projects> :first-child,
+#experiences> :first-child,
+#contact> :first-child {
+  padding-top: 5rem;
+  margin-bottom: 5rem;
 }

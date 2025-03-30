@@ -89,6 +89,9 @@
     top: 0;
     width: 100%;
     z-index: 100;
+    background-color: var(--background-transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(px); 
   }
 
   .nav-container {
