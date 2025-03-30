@@ -8,6 +8,7 @@ export interface Project {
 }
 
 export interface Experience extends Project {
+  company: string,
   yearStart: string,
   yearEnd: string
 }
