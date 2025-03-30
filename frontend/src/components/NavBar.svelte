@@ -1,6 +1,14 @@
 <script lang="ts">
   import Button from "./Button.svelte";
   import { Moon, Menu } from "@lucide/svelte";
+  import NavMenu from "./NavMenu.svelte";
+  import { slide } from "svelte/transition";
+
+  let isMenuOpen = false;
+
+  const toggleMenu = () => {
+    isMenuOpen = !isMenuOpen;
+  };
 
   const titleLinkMap = {
     "00 Home": "home",
@@ -29,16 +37,23 @@
 
   <!-- Mobile View -->
   <div class="mobile-wrapper">
-    <span class="icon action"><Menu /></span>
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
+    <div on:click={toggleMenu}>
+      <span class="icon action"><Menu /></span>
+    </div>
     <span class="icon action"><Moon /></span>
   </div>
 </nav>
+
+{#if isMenuOpen}
+  <NavMenu {titleLinkMap} />
+{/if}
 
 <style>
   nav {
     position: sticky;
     top: 0;
-    z-index: 100;
   }
 
   .desktop-wrapper {
