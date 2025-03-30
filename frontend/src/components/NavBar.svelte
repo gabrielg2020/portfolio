@@ -1,6 +1,7 @@
 <script lang="ts">
   import Button from "./Button.svelte";
-  import { Moon, Menu } from "@lucide/svelte";
+  import { Menu } from "@lucide/svelte";
+  import ThemeToggle from "./ThemeToggle.svelte";
   import NavMenu from "./NavMenu.svelte";
   import { slide } from "svelte/transition";
 
@@ -31,7 +32,7 @@
         <Button text="Website Docs" location="home" />
         <Button text="GitHub Repo" location="home" />
       </div>
-      <span class="icon action"><Moon /></span>
+      <ThemeToggle/>
     </div>
   </div>
 
@@ -42,7 +43,7 @@
     <div on:click={toggleMenu}>
       <span class="icon action"><Menu /></span>
     </div>
-    <span class="icon action"><Moon /></span>
+    <ThemeToggle/>
   </div>
 </nav>
 
@@ -75,6 +76,7 @@
 
   .buttons {
     display: flex;
+    align-items: center;
     gap: 1rem;
   }
 

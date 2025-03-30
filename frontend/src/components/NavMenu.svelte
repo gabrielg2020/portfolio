@@ -58,7 +58,7 @@
     justify-content: space-between;
   
     /* Styling */
-    background-color: var(--off-white);
+    background-color: var(--background);
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
   }
@@ -88,7 +88,7 @@
     z-index: 99;
     width: 100vw;
     height: 100vh;
-    background-color: var(--off-white-transparent);
+    background-color: var(--background-transparent);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px); 
   }

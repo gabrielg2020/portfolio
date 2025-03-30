@@ -1,15 +1,28 @@
 :root {
-  --near-black: rgb(30, 42, 56);
+  --near-black: #1e2a38;
   --off-white: #f5f7fa;
   --info-blue: #2196f3;
   --info-blue-transparent: rgba(33, 150, 243, 0.2);
   --off-white-transparent: rgba(245, 247, 250, 0.8);
   --near-black-transparent: rgb(30, 42, 56, 0.8);
+  --background: var(--off-white);
+  --text: var(--near-black);
+  --background-transparent: var(--off-white-transparent);
+  --text-transparent: var(--near-black-transparent);
+}
+
+html.dark-theme {
+  --background: var(--near-black);
+  --text: var(--off-white);
+  --background-transparent: var(--near-black-transparent);
+  --text-transparent: var(--off-white-transparent);
 }
 
 #app {
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
   height: 100vh;
-  background-color: var(--off-white);
   padding: 1rem;
 }
 

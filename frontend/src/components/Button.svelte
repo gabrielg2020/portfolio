@@ -25,7 +25,7 @@
     justify-content: center;
     cursor: pointer;
     gap: 8px;
-    border: 2px solid var(--near-black);
+    border: 2px solid var(--text);
     padding: 4px;
   }
 
