@@ -1,0 +1,57 @@
+export interface Project {
+  title: string,
+  smallDescription: string,
+  largeDescription: string[],
+  githubLink: string,
+  languages: string[],
+  technologies: string[]
+}
+
+export interface Experience extends Project {
+  yearStart: string,
+  yearEnd: string
+}
+
+let error: string | null = null;
+
+export const GetProjects = async (): Promise<Project[]> => {
+  let projects: Project[] = []
+  try {
+    const response = await fetch("/api/projects")
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+    const data = await response.json()
+    projects = data.projects
+  } catch (err) {
+    console.error("Failed to fetch projects:", err);
+    if (err instanceof Error) {
+      error = err.message;
+    } else {
+      error = String(err);
+    }
+  }
+
+  return projects
+}
+
+export const GetExperiences = async (): Promise<Experience[]> => {
+  let experiences: Experience[] = []
+  try {
+    const response = await fetch("/api/experiences")
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+    const data = await response.json()
+    experiences = data.experiences
+  } catch (err) {
+    console.error("Failed to fetch experiences:", err);
+    if (err instanceof Error) {
+      error = err.message;
+    } else {
+      error = String(err);
+    }
+  }
+
+  return experiences
+}
