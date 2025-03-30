@@ -56,7 +56,7 @@ func GetExperiences(c *gin.Context) {
 			"role":             role,
 			"yearStart":        yearStart,
 			"yearEnd":          yearEnd,
-			"longDescription":  points,
+			"largeDescription":  points,
 			"languages":        languages,
 			"technologies":     technologies,
 		}

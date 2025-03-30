@@ -50,13 +50,13 @@ func GetProjects(c *gin.Context) {
 
 		// Instert data into JSON format
 		project := map[string]interface{}{
-			"id":           projectID,
-			"title":        title,
-			"description":  description,
-			"githubLink":   githubLink,
-			"longDescription":  points,
-			"languages":    languages,
-			"technologies": technologies,
+			"id":               projectID,
+			"title":            title,
+			"smalldescription": description,
+			"githubLink":       githubLink,
+			"largeDescription": points,
+			"languages":        languages,
+			"technologies":     technologies,
 		}
 
 		projects = append(projects, project)
