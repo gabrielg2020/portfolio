@@ -3,12 +3,14 @@
   import Experiences from "./pages/Experience.svelte";
   import Home from "./pages/Home.svelte";
   import Projects from "./pages/Projects.svelte";
+  import NavBar from "./components/NavBar.svelte";
 </script>
 
-<div class="bg-off-white min-h-screen">
+<div class="min-h-[10000px] mr-16 ml-16">
+  <!-- <NavBar /> -->
   <Home />
-  <Projects />
+  <!-- <Projects />
   <Experiences />
-  <Contact />
+  <Contact /> -->
 </div>
 
