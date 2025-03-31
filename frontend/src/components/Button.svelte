@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ArrowRight } from "@lucide/svelte";
 
-  // Props with improved typing
+  // Props
   export let text: string = "Button";
   export let variant: "primary" | "outline" =
     "primary";

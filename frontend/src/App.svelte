@@ -1,16 +1,23 @@
 <script lang="ts">
-  import Contact from "./pages/Contact.svelte";
-  import Experiences from "./pages/Experience.svelte";
-  import Home from "./pages/Home.svelte";
-  import Projects from "./pages/Projects.svelte";
   import NavBar from "./components/NavBar.svelte";
+  import Home from "./pages/Home.svelte";
+
+  let pageLinks: {label: string; href:string}[] = [
+    { label: "Home", href: "#home" },
+    { label: "Projects", href: "#projects" },
+    { label: "Experience", href: "#experience" },
+    { label: "Contact", href: "#contact" }
+  ]
+
+  let socials: {github: string; linkedin: string; resume: string} = {
+    github: "https://github.com/gabrielg2020",
+    linkedin: "https://linkedin.com/in/gabrielg4",
+    resume: "/resume.pdf"
+  }
 </script>
 
-<div class="min-h-[10000px] mr-16 ml-16">
-  <!-- <NavBar /> -->
+<div class="min-h-screen">
+  <NavBar name="Gabriel Guimaraes" links={pageLinks} socials={socials}/>
   <Home />
-  <!-- <Projects />
-  <Experiences />
-  <Contact /> -->
 </div>
 
