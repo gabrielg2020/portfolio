@@ -5,7 +5,10 @@
   import Projects from "./pages/Projects.svelte";
 </script>
 
-<Home />
-<Projects />
-<Experiences />
-<Contact />
+<div class="bg-off-white min-h-screen">
+  <Home />
+  <Projects />
+  <Experiences />
+  <Contact />
+</div>
+
