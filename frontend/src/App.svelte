@@ -1,27 +1,26 @@
 <script lang="ts">
-  import ExperienceCard from "./components/ExperienceCard.svelte";
-import NavBar from "./components/NavBar.svelte";
+  import NavBar from "./components/NavBar.svelte";
+  import Experience from "./pages/Experience.svelte";
   import Home from "./pages/Home.svelte";
   import Projects from "./pages/Projects.svelte";
 
-  let pageLinks: {label: string; href:string}[] = [
+  let pageLinks: { label: string; href: string }[] = [
     { label: "Home", href: "#home" },
     { label: "Projects", href: "#projects" },
     { label: "Experience", href: "#experience" },
-    { label: "Contact", href: "#contact" }
-  ]
+    { label: "Contact", href: "#contact" },
+  ];
 
-  let socials: {github: string; linkedin: string; resume: string} = {
+  let socials: { github: string; linkedin: string; resume: string } = {
     github: "https://github.com/gabrielg2020",
     linkedin: "https://linkedin.com/in/gabrielg4",
-    resume: "/resume.pdf"
-  }
+    resume: "/resume.pdf",
+  };
 </script>
 
 <div class="min-h-screen">
-  <NavBar name="Gabriel Guimaraes" links={pageLinks} socials={socials}/>
+  <NavBar name="Gabriel Guimaraes" links={pageLinks} {socials} />
   <Home />
   <Projects />
-  <ExperienceCard />
+  <Experience />
 </div>
-
