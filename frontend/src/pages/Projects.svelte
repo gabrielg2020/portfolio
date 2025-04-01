@@ -90,7 +90,7 @@
       {/each}
 
       <!-- Add empty placeholders if needed to fill the slide -->
-      {#each Array(itemsPerSlide - getProjectsForSlide(slideIndex, itemsPerSlide).length) as _, index (index)}
+      {#each Array(itemsPerSlide - getProjectsForSlide(slideIndex, itemsPerSlide).length) as null, index (index)}
         <div class="flex-1 min-w-0"></div>
       {/each}
     </svelte:fragment>
