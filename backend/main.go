@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+
 	"github.com/gabrielg2020/backend/logger"
 
 	"github.com/gabrielg2020/backend/routes"
@@ -13,7 +14,7 @@ func main() {
 	if ginMode == "release" {
 		logger.SetLogLevel("Warn")
 	}
-	
+
 	router := routes.SetupRouter()
 
 	logger.Info("Server starting on :8080")

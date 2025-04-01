@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"database/sql"
-	"log"
 	"net/http"
 
 	"github.com/gabrielg2020/backend/queries"
@@ -23,7 +22,7 @@ func GetProjects(c *gin.Context) {
 	rows, err := db.Query(query)
 
 	if err != nil {
-		log.Fatalf("Failed to query projects: %v", err)
+		handleInternalServerError(c, err, "Failed to query projects: %v")
 	}
 	defer rows.Close()
 
@@ -33,7 +32,7 @@ func GetProjects(c *gin.Context) {
 		var languagesStr, technologiesStr, liveURLStr sql.NullString
 
 		if err := rows.Scan(&projectID, &title, &description, &githubURL, &liveURLStr, &languagesStr, &technologiesStr); err != nil {
-			log.Fatalf("Failed to scan project: %v", err)
+			handleInternalServerError(c, err, "Failed to scan project: %v")
 		}
 
 		// Parse string 'arrays'
@@ -67,7 +66,7 @@ func GetProjects(c *gin.Context) {
 		projects = append(projects, project)
 
 		if err := rows.Err(); err != nil {
-			log.Fatalf("Error iterating over rows: %v", err)
+			handleInternalServerError(c, err, "Error iterating over rows: %v")
 		}
 	}
 

@@ -16,7 +16,7 @@ var (
 func GetLogger() *logrus.Logger {
 	once.Do(func() {
 		log = logrus.New()
-		
+
 		// Default config
 		log.SetOutput(os.Stdout)
 		log.SetLevel(logrus.InfoLevel)
@@ -25,7 +25,7 @@ func GetLogger() *logrus.Logger {
 			FullTimestamp: true,
 		})
 	})
-	
+
 	return log
 }
 

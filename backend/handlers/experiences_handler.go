@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"database/sql"
-	"log"
+
 	"net/http"
 
 	"github.com/gabrielg2020/backend/queries"
@@ -23,7 +23,7 @@ func GetExperiences(c *gin.Context) {
 	rows, err := db.Query(query)
 
 	if err != nil {
-		log.Fatalf("Failed to query experiences: %v", err)
+		handleInternalServerError(c, err, "Failed to query experiences: %v")
 	}
 	defer rows.Close()
 
@@ -33,7 +33,7 @@ func GetExperiences(c *gin.Context) {
 		var languagesStr, technologiesStr sql.NullString
 
 		if err := rows.Scan(&experienceID, &organisation, &role, &startYear, &endYear, &description, &languagesStr, &technologiesStr); err != nil {
-			log.Fatalf("Failed to scan project: %v", err)
+			handleInternalServerError(c, err, "Failed to scan project: %v")
 		}
 
 		// Parse string 'arrays'
@@ -60,7 +60,7 @@ func GetExperiences(c *gin.Context) {
 		experiences = append(experiences, experience)
 
 		if err := rows.Err(); err != nil {
-			log.Fatalf("Error iterating over rows: %v", err)
+			handleInternalServerError(c, err, "Error iterating over rows: %v")
 		}
 	}
 
