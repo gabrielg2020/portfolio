@@ -3,6 +3,7 @@
   import Experience from "./pages/Experience.svelte";
   import Home from "./pages/Home.svelte";
   import Projects from "./pages/Projects.svelte";
+  import Contact from "./pages/Contact.svelte";
 
   let pageLinks: { label: string; href: string }[] = [
     { label: "Home", href: "#home" },
@@ -19,8 +20,13 @@
 </script>
 
 <div class="min-h-screen">
-  <NavBar name="Gabriel Guimaraes" links={pageLinks} {socials} />
+  <NavBar name="Gabriel Guimaraes" links={pageLinks} socials={socials} />
   <Home />
   <Projects />
   <Experience />
+  <Contact 
+  email="gabriel.mg04@outlook.com"
+  location="East Midlands, England"
+  socials={socials}
+/>
 </div>
