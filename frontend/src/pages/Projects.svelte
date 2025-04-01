@@ -1,102 +1,98 @@
 <script lang="ts">
-  import Project from "../components/Project.svelte";
-  import JumpButton from "../components/JumpButton.svelte";
+  import Carousel from "../components/Carousel.svelte";
+  import ProjectCard from "../components/ProjectCard.svelte";
 
-  import { onMount } from "svelte";
+  // AI Generated Projects - API Call in next PR
+  const projects = [
+    {
+      title: "E-Commerce Platform",
+      description:
+        "A full-stack e-commerce application with cart functionality, user authentication, and payment processing.",
+      languages: ["TypeScript", "CSS", "HTML"],
+      technologies: ["React", "Node.js", "Express", "MongoDB"],
+      githubUrl: "#",
+      liveUrl: "#",
+    },
+    {
+      title: "Task Management Dashboard",
+      description:
+        "A Kanban-style project management tool with drag and drop functionality and team collaboration features.",
+      languages: ["JavaScript", "CSS", "HTML"],
+      technologies: ["Vue.js", "Firebase", "Vuex"],
+      githubUrl: "#",
+      liveUrl: "#",
+    },
+    {
+      title: "Data Visualization Tool",
+      description:
+        "An interactive dashboard showcasing various visualization techniques for complex datasets.",
+      languages: ["TypeScript", "SCSS"],
+      technologies: ["Angular", "D3.js", "PostgreSQL"],
+      githubUrl: "#",
+      liveUrl: null,
+    },
+    {
+      title: "Content Management System",
+      description:
+        "A custom CMS designed for bloggers and content creators with markdown support and SEO optimization.",
+      languages: ["JavaScript", "CSS", "HTML"],
+      technologies: ["Next.js", "Supabase", "Tailwind CSS"],
+      githubUrl: "#",
+      liveUrl: "#",
+    },
+    {
+      title: "Mobile Fitness App",
+      description:
+        "A cross-platform mobile application for tracking workouts, nutrition, and progress towards fitness goals.",
+      languages: ["TypeScript", "CSS"],
+      technologies: ["React Native", "Redux", "Firebase"],
+      githubUrl: "#",
+      liveUrl: null,
+    },
+    {
+      title: "Real-time Chat Application",
+      description:
+        "A real-time messaging platform with private conversations, group chats, and media sharing capabilities.",
+      languages: ["JavaScript", "CSS", "HTML"],
+      technologies: ["Socket.io", "Express", "MongoDB"],
+      githubUrl: "#",
+      liveUrl: "#",
+    },
+  ];
 
-  let projects: {
-    id: number;
-    description: string;
-    githubLink: string;
-    title: string;
-    languages: string[];
-    technologies: string[];
-  }[] = [];
-  let error: string | null = null;
-
-  onMount(async () => {
-    try {
-      const response = await fetch("/api/projects");
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      projects = data.projects;
-    } catch (err) {
-      console.error("Failed to fetch projects:", err);
-      if (err instanceof Error) {
-        error = err.message;
-      } else {
-        error = String(err);
-      }
-    }
-  });
+  // Helper function to get projects for a specific slide
+  function getProjectsForSlide(slideIndex: number, itemsPerSlide: number) {
+    const startIdx = slideIndex * itemsPerSlide;
+    return projects.slice(startIdx, startIdx + itemsPerSlide);
+  }
 </script>
 
-<div id="projects">
-  <div class="header">
-    <h1>Project Showcase</h1>
-    <h4>Open them up to learn more!</h4>
-  </div>
-  <div class="projects-wrapper">
-    {#if error}
-      <div class="error">{error}</div>
-    {:else}
-      <div class="projects-wrapper">
-        {#each projects as project (project.id)}
-          <Project
+<section id="projects">
+  <Carousel
+    title="Projects"
+    totalItems={projects.length}
+    itemsPerSlideDesktop={3}
+    itemsPerSlideTablet={2}
+    itemsPerSlideMobile={1}
+  >
+    <svelte:fragment slot="slide" let:slideIndex let:itemsPerSlide>
+      {#each getProjectsForSlide(slideIndex, itemsPerSlide) as project (project.title)}
+        <div class="flex-1 min-w-0">
+          <ProjectCard
             title={project.title}
             description={project.description}
-            langauges={project.languages}
+            languages={project.languages}
             technologies={project.technologies}
-            githubLink={project.githubLink}
+            githubUrl={project.githubUrl}
+            liveUrl={project.liveUrl}
           />
-        {/each}
-      </div>
-    {/if}
-  </div>
-  <div class="footer">
-    <JumpButton text="Take a look at my experiences!" location="experiences"/>
-  </div>
-</div>
+        </div>
+      {/each}
 
-<style>
-  #projects {
-    display: flex;
-    flex-direction: column;
-    padding-top: 5vh; /* Add some top padding */
-  }
-
-  .header {
-    outline: 1px blue solid;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 3vh; /* Space between header and projects */
-  }
-
-  .footer {
-    display: flex;
-    justify-content: center;
-    padding-top: 5vh;
-  }
-
-  .projects-wrapper {
-    display: flex;
-    gap: 1rem;
-  }
-
-  h1,
-  h4 {
-    font-family: "Martian Mono", monospace;
-    margin: 0;
-  }
-
-  h1 {
-    margin-bottom: 2vh;
-  }
-
-  h4 {
-    font-weight: 400;
-  }
-</style>
+      <!-- Add empty placeholders if needed to fill the slide -->
+      {#each Array(itemsPerSlide - getProjectsForSlide(slideIndex, itemsPerSlide).length) as _, index (index)}
+        <div class="flex-1 min-w-0"></div>
+      {/each}
+    </svelte:fragment>
+  </Carousel>
+</section>
