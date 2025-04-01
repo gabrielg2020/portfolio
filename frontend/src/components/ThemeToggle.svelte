@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Moon, Sun } from '@lucide/svelte';
-  import { darkMode, toggleDarkMode } from '../store/darkMode';
+  import { darkMode, toggleDarkMode } from '../scripts/store/darkMode';
 
   // Props
   export let size: number = 20;
