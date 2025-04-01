@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { Github, Linkedin, FileText, Moon, Sun, Menu, X } from '@lucide/svelte';
+  import { Github, Linkedin, FileText, Menu, X } from '@lucide/svelte';
+  import { darkMode } from '../store/darkMode';
+  import ThemeToggle from './ThemeToggle.svelte';
 
   // Props
   export let name: string = "Your Name";
@@ -22,7 +24,6 @@
 
   // Internal state
   let isMenuOpen: boolean = false;
-  let isDarkMode: boolean = false;
   let isScrolled: boolean = false;
   let isVisible: boolean = true;
   let lastScrollY: number = 0;
@@ -56,22 +57,16 @@
     isMenuOpen = !isMenuOpen;
   }
 
-  function toggleDarkMode(): void {
-    isDarkMode = !isDarkMode;
-    // TODO implement dark mode
-    // document.documentElement.classList.toggle('dark');
-  }
-
   // Close menu when clicking a link
   function closeMenu(): void {
     isMenuOpen = false;
   }
 </script>
 
-<header class="{isScrolled ? 'py-3 bg-white shadow-sm' : 'py-5 bg-transparent'} {isVisible ? 'translate-y-0' : '-translate-y-full'} fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+<header class="{isScrolled ? 'py-3 bg-white dark:bg-gray-900 shadow-sm' : 'py-5 bg-white dark:bg-gray-900'} {isVisible ? 'translate-y-0' : '-translate-y-full'} fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <nav class="container mx-auto px-6 flex justify-between items-center">
     <!-- Logo/Name -->
-    <a href="#home" class="text-lg font-medium text-gray-800 hover:text-blue-600 transition-colors">
+    <a href="#home" class="text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
       {name}
     </a>
 
@@ -83,7 +78,7 @@
           <li>
             <a 
               href={link.href} 
-              class="text-sm text-gray-600 hover:text-blue-600 transition-colors"
+              class="text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
               {link.label}
             </a>
@@ -98,7 +93,7 @@
             href={socials.github}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-500 hover:text-blue-600 transition-colors"
+            class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             aria-label="GitHub"
           >
             <Github size={18} />
@@ -110,7 +105,7 @@
             href={socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-500 hover:text-blue-600 transition-colors"
+            class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             aria-label="LinkedIn"
           >
             <Linkedin size={18} />
@@ -122,7 +117,7 @@
             href={socials.resume}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-500 hover:text-blue-600 transition-colors"
+            class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             aria-label="Resume"
           >
             <FileText size={18} />
@@ -131,22 +126,12 @@
       </div>
 
       <!-- Dark Mode Toggle -->
-      <button 
-        on:click={toggleDarkMode}
-        class="text-gray-500 hover:text-blue-600 transition-colors p-1"
-        aria-label="Toggle Dark Mode"
-      >
-        {#if isDarkMode}
-          <Sun size={18} />
-        {:else}
-          <Moon size={18} />
-        {/if}
-      </button>
+      <ThemeToggle size={18} />
     </div>
 
     <!-- Mobile Menu Button -->
     <button 
-      class="md:hidden text-gray-700 hover:text-blue-600 transition-colors"
+      class="md:hidden text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
       on:click={toggleMenu}
       aria-label="Toggle Menu"
     >
@@ -159,14 +144,14 @@
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="md:hidden bg-white absolute left-0 right-0 shadow-md transition-all duration-300 overflow-hidden {isMenuOpen ? 'max-h-96 py-4' : 'max-h-0'}">
+  <div class="md:hidden bg-white dark:bg-gray-900 absolute left-0 right-0 shadow-md transition-all duration-300 overflow-hidden {isMenuOpen ? 'max-h-96 py-4' : 'max-h-0'}">
     <div class="container mx-auto px-6">
       <ul class="space-y-4 mb-6">
         {#each links as link, index (index)}
           <li>
             <a 
               href={link.href} 
-              class="block text-gray-600 hover:text-blue-600 transition-colors"
+              class="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               on:click={closeMenu}
             >
               {link.label}
@@ -181,7 +166,7 @@
             href={socials.github}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-500 hover:text-blue-600 transition-colors"
+            class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             aria-label="GitHub"
           >
             <Github size={20} />
@@ -193,7 +178,7 @@
             href={socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-500 hover:text-blue-600 transition-colors"
+            class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             aria-label="LinkedIn"
           >
             <Linkedin size={20} />
@@ -205,24 +190,16 @@
             href={socials.resume}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-500 hover:text-blue-600 transition-colors"
+            class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             aria-label="Resume"
           >
             <FileText size={20} />
           </a>
         {/if}
 
-        <button 
-          on:click={toggleDarkMode}
-          class="text-gray-500 hover:text-blue-600 transition-colors ml-auto"
-          aria-label="Toggle Dark Mode"
-        >
-          {#if isDarkMode}
-            <Sun size={20} />
-          {:else}
-            <Moon size={20} />
-          {/if}
-        </button>
+        <div class="ml-auto">
+          <ThemeToggle size={20} />
+        </div>
       </div>
     </div>
   </div>

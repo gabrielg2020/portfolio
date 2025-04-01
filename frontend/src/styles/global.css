@@ -7,3 +7,5 @@
   --color-deep-navy: #232946;
   --color-medium-gray: #64748B;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));

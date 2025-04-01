@@ -16,7 +16,7 @@
     : `© ${startYear}–${currentYear} ${copyrightName}`;
 </script>
 
-<footer class="bg-gray-900 text-gray-300 py-8 mt-auto">
+<footer class="bg-gray-900 dark:bg-gray-950 text-gray-300 py-8 mt-auto transition-colors duration-200">
   <div class="container mx-auto px-6">
     <div class="flex flex-col md:flex-row justify-between items-center">
       <!-- Left side: Copyright -->
@@ -30,7 +30,7 @@
           href={docsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center text-gray-300 hover:text-white transition-colors text-sm"
+          class="flex items-center text-gray-300 hover:text-white dark:hover:text-blue-400 transition-colors text-sm"
         >
           <FileText class="h-4 w-4 mr-2" />
           <span>Documentation</span>
@@ -40,7 +40,7 @@
           href={repoUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center text-gray-300 hover:text-white transition-colors text-sm"
+          class="flex items-center text-gray-300 hover:text-white dark:hover:text-blue-400 transition-colors text-sm"
         >
           <Github class="h-4 w-4 mr-2" />
           <span>GitHub</span>

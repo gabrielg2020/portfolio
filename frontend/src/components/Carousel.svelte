@@ -106,15 +106,15 @@
   });
 </script>
 
-<section class="py-16 bg-gray-50">
+<section class="py-16 bg-gray-50 dark:bg-gray-800 transition-colors">
   <div class="container mx-auto px-6">
     <div class="flex justify-between items-center mb-8">
-      <h2 class="text-2xl font-bold text-gray-800">{title}</h2>
+      <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">{title}</h2>
       <div class="flex space-x-2">
         <button 
           on:click={prevSlide}
           disabled={isTransitioning}
-          class="p-2 rounded-full bg-white border border-gray-200 text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors disabled:opacity-50"
+          class="p-2 rounded-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-blue-600 dark:hover:text-blue-400 transition-colors disabled:opacity-50"
           aria-label="Previous items"
         >
           <ChevronLeft size={20} />
@@ -122,7 +122,7 @@
         <button 
           on:click={nextSlide}
           disabled={isTransitioning}
-          class="p-2 rounded-full bg-white border border-gray-200 text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors disabled:opacity-50"
+          class="p-2 rounded-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-blue-600 dark:hover:text-blue-400 transition-colors disabled:opacity-50"
           aria-label="Next items"
         >
           <ChevronRight size={20} />
@@ -158,17 +158,17 @@
     {#if totalSlides > 1}
       <div class="flex justify-center mt-6 space-x-2">
         {#each Array(totalSlides) as _, index}
-          <!-- svelte-ignore element_invalid_self_closing_tag -->
           <button
             on:click={() => goToSlide(index)}
             class="h-2 rounded-full transition-all {
               index === currentIndex 
-                ? 'bg-blue-600 w-4' 
-                : 'bg-gray-300 hover:bg-gray-400 w-2'
+                ? 'bg-blue-600 dark:bg-blue-500 w-4' 
+                : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 w-2'
             }"
             aria-label="Go to slide {index + 1}"
             aria-current={index === currentIndex ? 'true' : 'false'}
-          />
+          >
+          </button>
         {/each}
       </div>
     {/if}

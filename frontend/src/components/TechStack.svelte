@@ -9,7 +9,7 @@
   {#if languages.length > 0}
     <div class="flex flex-wrap gap-2">
       {#each languages as lang, index}
-        <span class="text-xs text-gray-600">
+        <span class="text-xs text-gray-600 dark:text-gray-400">
           {lang}{index < languages.length - 1 ? " •" : ""}
         </span>
       {/each}
@@ -20,7 +20,7 @@
   {#if technologies.length > 0}
     <div class="flex flex-wrap gap-2">
       {#each technologies as tech}
-        <span class="inline-block text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded">
+        <span class="inline-block text-xs px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">
           {tech}
         </span>
       {/each}

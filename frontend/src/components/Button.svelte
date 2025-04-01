@@ -3,8 +3,7 @@
 
   // Props
   export let text: string = "Button";
-  export let variant: "primary" | "outline" =
-    "primary";
+  export let variant: "primary" | "outline" = "primary";
   export let size: "sm" | "md" | "lg" = "md";
   export let icon: typeof ArrowRight | null = null;
   export let href: string | null = null;
@@ -24,9 +23,9 @@
 
   const variantStyles = {
     primary:
-      "bg-blue-600 text-white border border-blue-600 hover:bg-blue-700 hover:border-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+      "bg-blue-600 text-white border border-blue-600 hover:bg-blue-700 hover:border-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-700 dark:border-blue-700 dark:hover:bg-blue-600 dark:hover:border-blue-600 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-900",
     outline:
-      "bg-transparent text-gray-800 border border-gray-300 hover:bg-gray-50 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+      "bg-transparent text-gray-800 border border-gray-300 hover:bg-gray-50 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-800 dark:focus:ring-gray-500 dark:focus:ring-offset-gray-900"
   };
 
   // Combined classes
@@ -62,13 +61,14 @@
   <span>{text}</span>
 
   <!-- Right icon slot -->
-
-  <span class="inline-flex">
-    <svelte:component
-      this={icon}
-      size={size === "sm" ? 14 : size === "md" ? 16 : 18}
-    />
-  </span>
+  {#if icon}
+    <span class="inline-flex">
+      <svelte:component
+        this={icon}
+        size={size === "sm" ? 14 : size === "md" ? 16 : 18}
+      />
+    </span>
+  {/if}
 
   <!-- Arrow icon for primary buttons without custom icon -->
   {#if showArrow}
