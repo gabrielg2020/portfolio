@@ -18,6 +18,7 @@ CREATE TABLE projects (
 
 CREATE TABLE experiences (
   experience_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  type TEXT NOT NULL,
   organisation TEXT NOT NULL,
   role TEXT NOT NULL,
   start_year TEXT NOT NULL,
