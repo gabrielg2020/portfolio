@@ -23,7 +23,7 @@ The website is built using a modern tech stack:
 
 ## Development Setup
 
-Written in [documentation]("https://gabrielg2020.github.io/portfolio/docs/local-setup").
+Written in [documentation](https://gabrielg2020.github.io/portfolio/docs/local-setup).
 
 ## Contributing
 

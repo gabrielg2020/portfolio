@@ -21,6 +21,7 @@ export async function GetExperiece(): Promise<Experience[]> {
     experiences = data.experiences;
   } catch (err) {
     console.error("Failed to fetch experiences:", err);
+    throw err; // Re-throw the error so it propagates to the caller
   }
 
   return experiences

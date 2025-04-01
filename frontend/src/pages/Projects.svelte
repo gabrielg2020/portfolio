@@ -1,9 +1,21 @@
 <script lang="ts">
   import Carousel from "../components/Carousel.svelte";
   import ProjectCard from "../components/ProjectCard.svelte";
+  import Loading from "../components/Loading.svelte";
+  import Error from "../components/Error.svelte";
   import { GetProjects } from "../scripts/callers/getProjects";
   import type { Project } from "../scripts/callers/getProjects";
-  const projectsPromise: Promise<Project[]> = GetProjects();
+  
+  // State management
+  let projectsPromise: Promise<Project[]>;
+  
+  // Load projects function (can be called for retries)
+  function loadProjects() {
+    projectsPromise = GetProjects();
+  }
+  
+  // Initial load
+  loadProjects();
 
   // Helper function to get projects for a specific slide
   function getProjectsForSlide(projects: Project[], slideIndex: number, itemsPerSlide: number) {
@@ -14,7 +26,7 @@
 
 <section id="projects">
   {#await projectsPromise}
-    <div class="loading">Loading projects...</div>
+    <Loading message="Loading projects..." />
   {:then projects}
     <Carousel
       title="Projects"
@@ -44,8 +56,9 @@
       </svelte:fragment>
     </Carousel>
   {:catch error}
-    <div class="error">
-      <p>Error loading projects: {error.message}</p>
-    </div>
+    <Error 
+      message={`Failed to load projects: ${error.message}`} 
+      retryFn={loadProjects} 
+    />
   {/await}
 </section>
