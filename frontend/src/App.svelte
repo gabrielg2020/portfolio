@@ -43,7 +43,7 @@
     />
   </main>
   <Footer
-    docsUrl="#"
+    docsUrl="https://gabrielg2020.github.io/portfolio"
     repoUrl="https://github.com/gabrielg2020/portfolio"
     copyrightName="Gabriel Guimaraes"
     startYear={2025}

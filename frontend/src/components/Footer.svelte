@@ -33,7 +33,7 @@
           class="flex items-center text-gray-300 hover:text-white dark:hover:text-blue-400 transition-colors text-sm"
         >
           <FileText class="h-4 w-4 mr-2" />
-          <span>Documentation</span>
+          <span>Website Documentation</span>
         </a>
         
         <a 
@@ -43,7 +43,7 @@
           class="flex items-center text-gray-300 hover:text-white dark:hover:text-blue-400 transition-colors text-sm"
         >
           <Github class="h-4 w-4 mr-2" />
-          <span>GitHub</span>
+          <span>GitHub Repository</span>
         </a>
       </div>
     </div>
