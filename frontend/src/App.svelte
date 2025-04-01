@@ -18,19 +18,21 @@
   let socials: { github: string; linkedin: string; resume: string } = {
     github: "https://github.com/gabrielg2020",
     linkedin: "https://linkedin.com/in/gabrielg4",
-    resume: "/resume.pdf",
+    resume: "documents/resume.pdf",
   };
 
   // Set up dark mode on initial page load
   onMount(() => {
     // Apply the dark mode class to the document if needed
     if ($darkMode) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     }
   });
 </script>
 
-<div class="min-h-screen flex flex-col dark:bg-gray-900 dark:text-gray-100 transition-colors duration-200">
+<div
+  class="min-h-screen flex flex-col dark:bg-gray-900 dark:text-gray-100 transition-colors duration-200"
+>
   <NavBar name="Gabriel Guimaraes" links={pageLinks} {socials} />
   <main class="flex-grow">
     <Home />
@@ -43,7 +45,7 @@
     />
   </main>
   <Footer
-    docsUrl="#"
+    docsUrl="https://gabrielg2020.github.io/portfolio"
     repoUrl="https://github.com/gabrielg2020/portfolio"
     copyrightName="Gabriel Guimaraes"
     startYear={2025}

@@ -7,7 +7,7 @@
 <div class="space-y-2">
   <!-- Languages with dot separators -->
   {#if Array.isArray(languages) && languages.length > 0}
-    <div class="flex flex-wrap gap-2">
+    <div class="flex flex-wrap gap-1">
       {#each languages as lang, index (index)}
         <span class="text-xs text-gray-600 dark:text-gray-400">
           {lang}{index < languages.length - 1 ? " •" : ""}
