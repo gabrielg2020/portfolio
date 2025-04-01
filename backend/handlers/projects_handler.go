@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"database/sql"
-	"log"
 	"net/http"
 
 	"github.com/gabrielg2020/backend/queries"
@@ -23,17 +22,17 @@ func GetProjects(c *gin.Context) {
 	rows, err := db.Query(query)
 
 	if err != nil {
-		log.Fatalf("Failed to query projects: %v", err)
+		handleInternalServerError(c, err, "Failed to query projects: %v")
 	}
 	defer rows.Close()
 
 	// Grab projects
 	for rows.Next() {
-		var projectID, title, description, githubLink string
-		var languagesStr, technologiesStr sql.NullString
+		var projectID, title, description, githubURL string
+		var languagesStr, technologiesStr, liveURLStr sql.NullString
 
-		if err := rows.Scan(&projectID, &title, &description, &githubLink, &languagesStr, &technologiesStr); err != nil {
-			log.Fatalf("Failed to scan project: %v", err)
+		if err := rows.Scan(&projectID, &title, &description, &githubURL, &liveURLStr, &languagesStr, &technologiesStr); err != nil {
+			handleInternalServerError(c, err, "Failed to scan project: %v")
 		}
 
 		// Parse string 'arrays'
@@ -45,12 +44,21 @@ func GetProjects(c *gin.Context) {
 			technologies = utils.ParseStringSlice(technologiesStr.String)
 		}
 
+		// Check if liveURL is valid
+		var liveURL interface{}
+		if liveURLStr.Valid {
+			liveURL = liveURLStr.String
+		} else {
+			liveURL = nil
+		}
+
 		// Instert data into JSON format
 		project := map[string]interface{}{
 			"id":           projectID,
 			"title":        title,
 			"description":  description,
-			"githubLink":   githubLink,
+			"githubUrl":    githubURL,
+			"liveUrl":      liveURL,
 			"languages":    languages,
 			"technologies": technologies,
 		}
@@ -58,7 +66,7 @@ func GetProjects(c *gin.Context) {
 		projects = append(projects, project)
 
 		if err := rows.Err(); err != nil {
-			log.Fatalf("Error iterating over rows: %v", err)
+			handleInternalServerError(c, err, "Error iterating over rows: %v")
 		}
 	}
 

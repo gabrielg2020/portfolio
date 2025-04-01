@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"database/sql"
-	"log"
+
 	"net/http"
 
 	"github.com/gabrielg2020/backend/queries"
@@ -23,17 +23,17 @@ func GetExperiences(c *gin.Context) {
 	rows, err := db.Query(query)
 
 	if err != nil {
-		log.Fatalf("Failed to query experiences: %v", err)
+		handleInternalServerError(c, err, "Failed to query experiences: %v")
 	}
 	defer rows.Close()
 
 	// Grab experiences
 	for rows.Next() {
-		var experienceID, company, role, yearStart, yearEnd, pointOne, pointTwo, pointThree string
+		var experienceID, typeStr, organisation, role, startYear, endYear, description string
 		var languagesStr, technologiesStr sql.NullString
 
-		if err := rows.Scan(&experienceID, &company, &role, &yearStart, &yearEnd, &pointOne, &pointTwo, &pointThree, &languagesStr, &technologiesStr); err != nil {
-			log.Fatalf("Failed to scan project: %v", err)
+		if err := rows.Scan(&experienceID, &typeStr, &organisation, &role, &startYear, &endYear, &description, &languagesStr, &technologiesStr); err != nil {
+			handleInternalServerError(c, err, "Failed to scan project: %v")
 		}
 
 		// Parse string 'arrays'
@@ -45,17 +45,15 @@ func GetExperiences(c *gin.Context) {
 			technologies = utils.ParseStringSlice(technologiesStr.String)
 		}
 
-		// Place points into a slice
-		points := []string{pointOne, pointTwo, pointThree}
-
 		// Instert data into JSON format
 		experience := map[string]interface{}{
 			"id":           experienceID,
-			"company":      company,
+			"type":         typeStr,
+			"organisation": organisation,
 			"role":         role,
-			"yearStart":    yearStart,
-			"yearEnd":      yearEnd,
-			"points":     points,
+			"startYear":    startYear,
+			"endYear":      endYear,
+			"description":  description,
 			"languages":    languages,
 			"technologies": technologies,
 		}
@@ -63,7 +61,7 @@ func GetExperiences(c *gin.Context) {
 		experiences = append(experiences, experience)
 
 		if err := rows.Err(); err != nil {
-			log.Fatalf("Error iterating over rows: %v", err)
+			handleInternalServerError(c, err, "Error iterating over rows: %v")
 		}
 	}
 

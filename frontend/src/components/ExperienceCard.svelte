@@ -4,7 +4,7 @@
   
   // Props
   export let type: "work" | "education" = "work";
-  export let organization: string = "Company Name";
+  export let organisation: string = "Company Name";
   export let role: string = "Job Title";
   export let startYear: string = "2020";
   export let endYear: string = "Present";
@@ -33,7 +33,7 @@
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
       <div>
         <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100">{role}</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">{organization}</p>
+        <p class="text-sm text-gray-600 dark:text-gray-400">{organisation}</p>
       </div>
       <div class="flex items-center mt-1 sm:mt-0 text-sm text-gray-500 dark:text-gray-400">
         <Calendar size={14} class="mr-1" />

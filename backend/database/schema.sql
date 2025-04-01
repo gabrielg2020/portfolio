@@ -11,19 +11,19 @@ CREATE TABLE projects (
   project_id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT NOT NULL,
   description TEXT NOT NULL,
-  github_link TEXT,
+  github_url TEXT,
+  live_url TEXT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE experiences (
   experience_id INTEGER PRIMARY KEY AUTOINCREMENT,
-  company TEXT NOT NULL,
+  type TEXT NOT NULL,
+  organisation TEXT NOT NULL,
   role TEXT NOT NULL,
-  year_start TEXT NOT NULL,
-  year_end TEXT NOT NULL,
-  point_one TEXT NOT NULL,
-  point_two TEXT NOT NULL,
-  point_three TEXT NOT NULL,
+  start_year TEXT NOT NULL,
+  end_year TEXT NOT NULL,
+  description TEXT NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

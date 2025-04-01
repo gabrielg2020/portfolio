@@ -5,7 +5,7 @@
   import Projects from "./pages/Projects.svelte";
   import Contact from "./pages/Contact.svelte";
   import Footer from "./components/Footer.svelte";
-  import { darkMode } from "./store/darkMode";
+  import { darkMode } from "./scripts/store/darkMode";
   import { onMount } from "svelte";
 
   let pageLinks: { label: string; href: string }[] = [

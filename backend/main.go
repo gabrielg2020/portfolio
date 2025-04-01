@@ -1,16 +1,24 @@
 package main
 
 import (
-	"log"
+	"os"
+
+	"github.com/gabrielg2020/backend/logger"
 
 	"github.com/gabrielg2020/backend/routes"
 )
 
 func main() {
+	// If not in development set a log level
+	ginMode := os.Getenv("GIN_MODE")
+	if ginMode == "release" {
+		logger.SetLogLevel("Warn")
+	}
+
 	router := routes.SetupRouter()
 
-	log.Println("Server starting on :8080")
+	logger.Info("Server starting on :8080")
 	if err := router.Run(":8080"); err != nil {
-		log.Fatal("Failed to start server: ", err)
+		logger.Fatal("Failed to start server: ", err)
 	}
 }
