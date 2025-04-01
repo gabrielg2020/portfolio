@@ -4,6 +4,7 @@
   import Home from "./pages/Home.svelte";
   import Projects from "./pages/Projects.svelte";
   import Contact from "./pages/Contact.svelte";
+  import Footer from "./components/Footer.svelte";
 
   let pageLinks: { label: string; href: string }[] = [
     { label: "Home", href: "#home" },
@@ -20,13 +21,19 @@
 </script>
 
 <div class="min-h-screen">
-  <NavBar name="Gabriel Guimaraes" links={pageLinks} socials={socials} />
+  <NavBar name="Gabriel Guimaraes" links={pageLinks} {socials} />
   <Home />
   <Projects />
   <Experience />
-  <Contact 
-  email="gabriel.mg04@outlook.com"
-  location="East Midlands, England"
-  socials={socials}
-/>
+  <Contact
+    email="gabriel.mg04@outlook.com"
+    location="East Midlands, England"
+    {socials}
+  />
+  <Footer
+    docsUrl="#"
+    repoUrl="https://github.com/gabrielg2020/portfolio"
+    copyrightName="Gabriel Guimaraes"
+    startYear={2025}
+  />
 </div>
