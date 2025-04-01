@@ -64,7 +64,7 @@ Once the containers are running, you access:
 The development containers are configured with volume mounts to the local source code:
 
 - Frontend (Svelte) changes will automatically trigger hot-reloading
-- Backend (Go) changes will trigger automatic recompilation
+- Backend (Go) for changes to show up you will need to restart development containers.
 - Documentation changes will refresh the documentation site
 
 ### Viewing Logs

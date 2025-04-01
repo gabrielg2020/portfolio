@@ -12,6 +12,8 @@ const config: Config = {
 
   organizationName: 'gabrielg2020', 
   projectName: 'portfolio',
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
