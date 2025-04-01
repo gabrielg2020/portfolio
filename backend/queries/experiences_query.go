@@ -33,13 +33,11 @@ func GetExperiences(limit int) string {
 	// Build full query
 	return fmt.Sprintf(`SELECT
     e.experience_id,
-    e.company,
+    e.organisation,
     e.role,
-    e.year_start,
-    e.year_end,
-    e.point_one,
-    e.point_two,
-    e.point_three,
+    e.start_year,
+    e.end_year,
+    e.description,
 		%s
 		%s
 FROM

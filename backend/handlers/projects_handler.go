@@ -29,10 +29,10 @@ func GetProjects(c *gin.Context) {
 
 	// Grab projects
 	for rows.Next() {
-		var projectID, title, description, githubLink string
-		var languagesStr, technologiesStr sql.NullString
+		var projectID, title, description, githubURL string
+		var languagesStr, technologiesStr, liveURLStr sql.NullString
 
-		if err := rows.Scan(&projectID, &title, &description, &githubLink, &languagesStr, &technologiesStr); err != nil {
+		if err := rows.Scan(&projectID, &title, &description, &githubURL, &liveURLStr, &languagesStr, &technologiesStr); err != nil {
 			log.Fatalf("Failed to scan project: %v", err)
 		}
 
@@ -45,12 +45,21 @@ func GetProjects(c *gin.Context) {
 			technologies = utils.ParseStringSlice(technologiesStr.String)
 		}
 
+		// Check if liveURL is valid
+		var liveURL interface{}
+		if liveURLStr.Valid {
+			liveURL = liveURLStr.String
+		} else {
+			liveURL = nil
+		}
+
 		// Instert data into JSON format
 		project := map[string]interface{}{
 			"id":           projectID,
 			"title":        title,
 			"description":  description,
-			"githubLink":   githubLink,
+			"githubURL":    githubURL,
+			"liveURL":      liveURL,
 			"languages":    languages,
 			"technologies": technologies,
 		}

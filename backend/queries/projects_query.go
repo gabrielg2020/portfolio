@@ -34,7 +34,8 @@ func GetProjects(limit int) string {
     p.project_id,
     p.title,
     p.description,
-    p.github_link,
+    p.github_url,
+		p.live_url,
 		%s
 		%s
 FROM
