@@ -76,7 +76,7 @@
     itemsPerSlideMobile={1}
   >
     <svelte:fragment slot="slide" let:slideIndex let:itemsPerSlide>
-      {#each getProjectsForSlide(slideIndex, itemsPerSlide) as project}
+      {#each getProjectsForSlide(slideIndex, itemsPerSlide) as project (project.title)}
         <div class="flex-1 min-w-0">
           <ProjectCard
             title={project.title}
@@ -90,7 +90,7 @@
       {/each}
 
       <!-- Add empty placeholders if needed to fill the slide -->
-      {#each Array(itemsPerSlide - getProjectsForSlide(slideIndex, itemsPerSlide).length) as _}
+      {#each Array(itemsPerSlide - getProjectsForSlide(slideIndex, itemsPerSlide).length) as _, index (index)}
         <div class="flex-1 min-w-0"></div>
       {/each}
     </svelte:fragment>

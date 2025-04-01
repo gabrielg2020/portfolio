@@ -40,7 +40,7 @@
 <section id="experience" class="py-16">
   <div class="container mx-auto px-6">
     <Timeline title="Experience">
-      {#each experiences as exp, index}
+      {#each experiences as exp, index (index)}
         <ExperienceCard
           type={exp.type as "work" | "education"}
           organization={exp.organization}

@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { Github, Linkedin, FileText, Menu, X } from '@lucide/svelte';
-  import { darkMode } from '../store/darkMode';
   import ThemeToggle from './ThemeToggle.svelte';
 
   // Props

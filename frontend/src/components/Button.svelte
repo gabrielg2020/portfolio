@@ -45,7 +45,6 @@
   $: showArrow = variant === "primary" && !icon;
 </script>
 
-<!-- svelte-ignore a11y-missing-attribute -->
 <svelte:element
   this={element}
   {href}
