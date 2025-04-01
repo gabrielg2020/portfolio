@@ -22,7 +22,7 @@ func SetupRouter() *gin.Engine {
 
 	// Serve static files
 	router.Static("/assets", "./static/assets")
-	router.Static("/images", "./static/images")
+	router.Static("/documents", "./static/documents")
 
 	// Serve index.html for any unmatched routes
 	router.NoRoute(func(ctx *gin.Context) {
