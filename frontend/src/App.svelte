@@ -1,7 +1,7 @@
 <script lang="ts">
   import NavBar from "./components/NavBar.svelte";
   import Home from "./pages/Home.svelte";
-  import ProjectCard from "./components/ProjectCard.svelte";
+  import Projects from "./pages/Projects.svelte";
 
   let pageLinks: {label: string; href:string}[] = [
     { label: "Home", href: "#home" },
@@ -20,6 +20,6 @@
 <div class="min-h-screen">
   <NavBar name="Gabriel Guimaraes" links={pageLinks} socials={socials}/>
   <Home />
-  <ProjectCard />
+  <Projects />
 </div>
 
