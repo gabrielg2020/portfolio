@@ -1,4 +1,3 @@
-
 package queries
 
 import "fmt"
@@ -44,6 +43,7 @@ func GetExperiences(limit int) string {
 FROM
 	experiences e
 ORDER BY
+	e.start_year DESC,
 	e.created_at DESC
 %s
 `, languagesSubquery, technologiesSubquery, limitSubString)

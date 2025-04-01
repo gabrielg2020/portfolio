@@ -35,12 +35,13 @@ func GetProjects(limit int) string {
     p.title,
     p.description,
     p.github_url,
-		p.live_url,
+    p.live_url,
 		%s
 		%s
 FROM
 	projects p
 ORDER BY
+	p.display_order ASC,
 	p.created_at DESC
 %s
 `, languagesSubquery, technologiesSubquery, limitSubString)

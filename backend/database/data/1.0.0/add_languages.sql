@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-INSERT INTO languages (name) VALUES 
+INSERT OR IGNORE INTO languages (name) VALUES 
   ('Go'), -- 1
   ('TypeScript'), -- 2
   ('VB.Net'), -- 3
