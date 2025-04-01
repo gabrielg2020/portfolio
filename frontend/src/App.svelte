@@ -1,5 +1,6 @@
 <script lang="ts">
-  import NavBar from "./components/NavBar.svelte";
+  import ExperienceCard from "./components/ExperienceCard.svelte";
+import NavBar from "./components/NavBar.svelte";
   import Home from "./pages/Home.svelte";
   import Projects from "./pages/Projects.svelte";
 
@@ -21,5 +22,6 @@
   <NavBar name="Gabriel Guimaraes" links={pageLinks} socials={socials}/>
   <Home />
   <Projects />
+  <ExperienceCard />
 </div>
 
