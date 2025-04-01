@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[583],{6107:(s,o,c)=>{c.r(o),c.d(o,{default:()=>t});var e=c(6347),r=c(4848);function t(){return(0,r.jsx)(e.rd,{to:"/portfolio/docs/"})}}}]);
