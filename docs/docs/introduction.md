@@ -14,7 +14,7 @@ I built this site using Go for the backend and Svelte for the frontend. Why thes
 
 ### Backend (Go)
 
-The Go backend provides API endpoints, handles data processing.
+The Go backend provides API endpoints, handles data processing and database queries.
 
 ### Frontend (Svelte)
 
