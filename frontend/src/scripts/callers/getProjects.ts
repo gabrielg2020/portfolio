@@ -1,8 +1,8 @@
 export type Project = {
   title: string,
   description: string,
-  githubURL: string,
-  liveURL: string,
+  githubUrl: string,
+  liveUrl: string,
   languages: string[],
   technologies: string[]
 }

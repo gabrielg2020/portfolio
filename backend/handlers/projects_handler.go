@@ -57,8 +57,8 @@ func GetProjects(c *gin.Context) {
 			"id":           projectID,
 			"title":        title,
 			"description":  description,
-			"githubURL":    githubURL,
-			"liveURL":      liveURL,
+			"githubUrl":    githubURL,
+			"liveUrl":      liveURL,
 			"languages":    languages,
 			"technologies": technologies,
 		}
