@@ -1,6 +1,7 @@
 <script lang="ts">
   import NavBar from "./components/NavBar.svelte";
   import Home from "./pages/Home.svelte";
+  import TechStack from "./components/TechStack.svelte";
 
   let pageLinks: {label: string; href:string}[] = [
     { label: "Home", href: "#home" },
@@ -19,5 +20,6 @@
 <div class="min-h-screen">
   <NavBar name="Gabriel Guimaraes" links={pageLinks} socials={socials}/>
   <Home />
+  <TechStack languages={["Go", "Python", "Typescript"]} technologies={["Go", "Python", "Typescript"]}/>
 </div>
 
