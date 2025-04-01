@@ -17,7 +17,7 @@ func SetupRouter() *gin.Engine {
 	api := router.Group("/api")
 	{
 		api.GET("/projects", handlers.GetProjects)
-		api.GET("/experiences", handlers.GetExperiences)
+		api.GET("/experience", handlers.GetExperiences)
 	}
 
 	// Serve static files
