@@ -42,7 +42,7 @@
     
     <div class="flex flex-wrap gap-4 mt-2">
       <Button text="View Projects" variant="primary" size="lg" href="#projects"/>
-      <Button text="View Resume" variant="outline" size="lg" href="/resume.pdf"/>
+      <Button text="View Resume" variant="outline" size="lg" href="documents/resume.pdf"/>
     </div>
   </div>
 </section>
