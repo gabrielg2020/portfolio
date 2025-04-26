@@ -10,7 +10,9 @@ import (
 func Home(ctx *gin.Context, state *state.State) {
 
 	ctx.HTML(http.StatusOK, "home.html", gin.H{
-		"title": state.CurrentLink.Name,
-		"links": state.Links[1:],
+		"title":    state.CurrentLink.Name,
+		"prevLink": state.PrevLink,
+		"nextLink": state.NextLink,
+		"links":    state.Links[1:],
 	})
 }

@@ -7,8 +7,12 @@
 </head>
 <body>
   <nav>
-    <a href={{.prev}}></a>
-    <a href={{.next}}></a>
+    {{if .prevLink}}
+      <a href={{.prevLink.Href}}><- {{.prevLink.Name}}</a>
+    {{end}}
+    {{if .nextLink}}
+      <a href={{.nextLink.Href}}>{{.nextLink.Name}} -></a>
+    {{end}}
   </nav>
   <main>
     {{template "content" .}}
