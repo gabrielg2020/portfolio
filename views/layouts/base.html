@@ -7,10 +7,9 @@
 </head>
 <body>
   <nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
+    <a href={{.prev}}></a>
+    <a href={{.next}}></a>
   </nav>
-
   <main>
     {{template "content" .}}
   </main>

@@ -4,10 +4,11 @@ import (
 	"net/http"
 
 	"github.com/gabrielg2020/portfolio/internal/handlers"
+	"github.com/gabrielg2020/portfolio/internal/state"
 	"github.com/gin-gonic/gin"
 )
 
-func SetupRouter() *gin.Engine {
+func SetupRouter(state *state.State) *gin.Engine {
 	router := gin.Default()
 
 	// API routes
@@ -21,7 +22,9 @@ func SetupRouter() *gin.Engine {
 	}
 
 	// Page routes
-	router.GET("/", handlers.Home)
+	router.GET("/", func(ctx *gin.Context) {
+		handlers.Home(ctx, state)
+	})
 
 	// Load templates
 	router.LoadHTMLGlob("views/**/*.html")
