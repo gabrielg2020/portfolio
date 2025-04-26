@@ -1,0 +1,22 @@
+{{define "base.html"}}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{.title}} - Portfolio</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <nav>
+    {{if .prevLink}}
+      <a href={{.prevLink.Href}}><- {{.prevLink.Name}}</a>
+    {{end}}
+    {{if .nextLink}}
+      <a href={{.nextLink.Href}}>{{.nextLink.Name}} -></a>
+    {{end}}
+  </nav>
+  <main>
+    {{template "content" .}}
+  </main>
+</body>
+</html>
+{{end}}
