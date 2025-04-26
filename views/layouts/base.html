@@ -1,0 +1,19 @@
+{{define "base.html"}}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{.title}} - Portfolio</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+  </nav>
+
+  <main>
+    {{template "content" .}}
+  </main>
+</body>
+</html>
+{{end}}

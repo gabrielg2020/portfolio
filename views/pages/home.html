@@ -1,0 +1,12 @@
+{{template "base.html" .}}
+
+{{define "content"}}
+<h1>Gabriel Guimaraes</h1>
+<ul>
+  {{range .links}}
+    <li>
+      <a href={{.Href}}>{{.Name}}</a>
+    </li>
+  {{end}}
+</ul>
+{{end}}
