@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>{{.title}} - Portfolio</title>
+  <title>{{.title}}</title>
   <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
@@ -15,7 +15,11 @@
     {{end}}
   </nav>
   <main>
-    {{template "content" .}}
+    {{if eq .title "00 - Home"}}
+      {{template "home_content" .}}
+    {{else if eq .title "01 - About Me"}}
+      {{template "about_content" .}}
+    {{end}}
   </main>
 </body>
 </html>

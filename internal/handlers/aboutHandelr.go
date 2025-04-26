@@ -7,13 +7,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Home(ctx *gin.Context, state *state.State) {
-	state.SetCurrentLinkIndexByHref("/")
+func About(ctx *gin.Context, state *state.State) {
+	state.SetCurrentLinkIndexByHref("/about")
 	link := state.GetCurrentLink()
-	ctx.HTML(http.StatusOK, "home.html", gin.H{
+	ctx.HTML(http.StatusOK, "about.html", gin.H{
 		"title":    link.Name,
 		"prevLink": state.Previous(),
 		"nextLink": state.Next(),
-		"links":    state.GetAllLinks()[1:],
 	})
 }
