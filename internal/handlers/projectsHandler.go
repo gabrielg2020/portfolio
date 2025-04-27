@@ -4,11 +4,10 @@ import (
 	"net/http"
 
 	"github.com/gabrielg2020/portfolio/internal/models"
-	"github.com/gabrielg2020/portfolio/internal/state"
 	"github.com/gin-gonic/gin"
 )
 
-func Projects(ctx *gin.Context, state *state.State) {
+func Projects(ctx *gin.Context, state *models.State) {
 	projects := getProjects()
 
 	state.SetCurrentLinkIndexByHref("/projects")

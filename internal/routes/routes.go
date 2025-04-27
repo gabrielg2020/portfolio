@@ -4,11 +4,11 @@ import (
 	"net/http"
 
 	"github.com/gabrielg2020/portfolio/internal/handlers"
-	"github.com/gabrielg2020/portfolio/internal/state"
+	"github.com/gabrielg2020/portfolio/internal/models"
 	"github.com/gin-gonic/gin"
 )
 
-func SetupRouter(state *state.State) *gin.Engine {
+func SetupRouter(state *models.State) *gin.Engine {
 	router := gin.Default()
 
 	// API routes

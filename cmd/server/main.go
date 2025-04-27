@@ -3,13 +3,13 @@ package main
 import (
 	"fmt"
 
+	"github.com/gabrielg2020/portfolio/internal/models"
 	"github.com/gabrielg2020/portfolio/internal/routes"
-	"github.com/gabrielg2020/portfolio/internal/state"
 )
 
 func main() {
 	// Initilise State
-	state := state.NewState()
+	state := models.NewState()
 
 	router := routes.SetupRouter(state)
 

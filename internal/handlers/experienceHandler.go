@@ -4,11 +4,10 @@ import (
 	"net/http"
 
 	"github.com/gabrielg2020/portfolio/internal/models"
-	"github.com/gabrielg2020/portfolio/internal/state"
 	"github.com/gin-gonic/gin"
 )
 
-func Experience(ctx *gin.Context, state *state.State) {
+func Experience(ctx *gin.Context, state *models.State) {
 	experiences := GetExperiences()
 
 	state.SetCurrentLinkIndexByHref("/experience")
