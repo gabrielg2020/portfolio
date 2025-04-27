@@ -1,0 +1,20 @@
+{{define "experience.html"}}
+<div>
+  <div>
+    <h3>{{.Role}}</h3>
+    <p>{{.Organisation}}</p>
+  </div>
+  <div>
+    <span>{{.StartYear}} - {{.EndYear}}</span>
+  </div>
+  <p>{{.Description}}</p>
+  <div>
+    {{if .Languages}}
+      <span>Languages: {{.Languages}}</span>
+    {{end}}
+    {{if .Technologies}}
+      <span>Technologies: {{.Technologies}}</span>
+    {{end}}
+  </div>
+</div>
+{{end}}
