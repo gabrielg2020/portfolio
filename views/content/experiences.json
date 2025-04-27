@@ -1,0 +1,23 @@
+[
+  {
+    "type": "Work",
+    "organisation": "DVSA",
+    "role": "Software Engineer",
+    "description": "Work Description",
+    "languages": "PHP, TypeScript",
+    "technologies": "Docker, Laminas, AWS, MySQL",
+    "startYear": "2024",
+    "endYear": "Current"
+  },
+  {
+    "type": "Education",
+    "organisation": "University of Roehampton",
+    "role": "BSc Digital Technology Solutions",
+    "description": "Education Description",
+    "languages": "Python, Go",
+    "technologies": "AWS, MySQL",
+    "startYear": "2024",
+    "endYear": "Current"
+  }
+]
+

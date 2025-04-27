@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SetupRouter(state *models.State) *gin.Engine {
+func SetupRouter(navigation *models.Navigation, storage *models.Storage) *gin.Engine {
 	router := gin.Default()
 
 	// API routes
@@ -23,19 +23,19 @@ func SetupRouter(state *models.State) *gin.Engine {
 
 	// Page routes
 	router.GET("/", func(ctx *gin.Context) {
-		handlers.Home(ctx, state)
+		handlers.Home(ctx, navigation)
 	})
 
 	router.GET("/about", func(ctx *gin.Context) {
-		handlers.About(ctx, state)
+		handlers.About(ctx, navigation)
 	})
 
 	router.GET("/projects", func(ctx *gin.Context) {
-		handlers.Projects(ctx, state)
+		handlers.Projects(ctx, navigation, storage)
 	})
 
 	router.GET("/experience", func(ctx *gin.Context) {
-		handlers.Experience(ctx, state)
+		handlers.Experience(ctx, navigation, storage)
 	})
 
 	// Load templates

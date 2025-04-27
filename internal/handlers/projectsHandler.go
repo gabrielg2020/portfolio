@@ -7,40 +7,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Projects(ctx *gin.Context, state *models.State) {
-	projects := getProjects()
-
-	state.SetCurrentLinkIndexByHref("/projects")
-	link := state.GetCurrentLink()
+func Projects(ctx *gin.Context, navigation *models.Navigation, storage *models.Storage) {
+	navigation.SetCurrentLinkIndexByHref("/projects")
+	link := navigation.GetCurrentLink()
 	ctx.HTML(http.StatusOK, "projects.html", gin.H{
 		"title":    link.Name,
-		"prevLink": state.Previous(),
-		"nextLink": state.Next(),
-		"projects": projects,
+		"prevLink": navigation.Previous(),
+		"nextLink": navigation.Next(),
+		"projects": storage.Projects,
 	})
-}
-
-func getProjects() []models.Project {
-	return []models.Project{
-		*models.NewProject(
-			"Portfolio",
-			"Portfolio Description",
-			"Maintaing",
-			"02/04/2025",
-			"Go",
-			"Docker",
-			"https://www.github.com/gabrielg2020/portfolio",
-			"https://www.gabrielg.tech",
-		),
-		*models.NewProject(
-			"Maze Visualiser",
-			"Maze Visualiser Description",
-			"Built",
-			"22/02/2023",
-			"VB.Net",
-			"",
-			"https://www.github.com/gabrielg2020/maze-visualiser",
-			"",
-		),
-	}
 }

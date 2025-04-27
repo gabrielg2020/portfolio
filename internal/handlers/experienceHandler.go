@@ -7,40 +7,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Experience(ctx *gin.Context, state *models.State) {
-	experiences := GetExperiences()
-
-	state.SetCurrentLinkIndexByHref("/experience")
-	link := state.GetCurrentLink()
+func Experience(ctx *gin.Context, navigation *models.Navigation, storage *models.Storage) {
+	navigation.SetCurrentLinkIndexByHref("/experience")
+	link := navigation.GetCurrentLink()
 	ctx.HTML(http.StatusOK, "experiences.html", gin.H{
 		"title":       link.Name,
-		"prevLink":    state.Previous(),
-		"nextLink":    state.Next(),
-		"experiences": experiences,
+		"prevLink":    navigation.Previous(),
+		"nextLink":    navigation.Next(),
+		"experiences": storage.Experiences,
 	})
-}
-
-func GetExperiences() []models.Experience {
-	return []models.Experience{
-		*models.NewExperience(
-			"Work",
-			"DVSA",
-			"Software Engineer",
-			"Work Description",
-			"PHP, TypeScript",
-			"Docker, Laminas, AWS, MySQL",
-			"2024",
-			"Current",
-		),
-		*models.NewExperience(
-			"Education",
-			"University of Roehampton",
-			"BSc Digital Technology Solutions",
-			"Education Description",
-			"Python, Go",
-			"AWS, MySQL",
-			"2024",
-			"Current",
-		),
-	}
 }

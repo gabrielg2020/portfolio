@@ -1,11 +1,11 @@
 package models
 
-type State struct {
+type Navigation struct {
 	links            []Link
 	currentLinkIndex int
 }
 
-func NewState() *State {
+func NewNavigation() *Navigation {
 	links := []Link{
 		{Name: "00 - Home", Href: "/"},
 		{Name: "01 - About Me", Href: "/about"},
@@ -13,46 +13,46 @@ func NewState() *State {
 		{Name: "03 - Experience", Href: "/experience"},
 		{Name: "04 - Blog", Href: "/blog"},
 	}
-	return &State{
+	return &Navigation{
 		links:            links,
 		currentLinkIndex: 0,
 	}
 }
 
-func (s *State) Current() *Link {
-	if s.currentLinkIndex >= 0 && s.currentLinkIndex < len(s.links) {
-		return &s.links[s.currentLinkIndex]
+func (n *Navigation) Current() *Link {
+	if n.currentLinkIndex >= 0 && n.currentLinkIndex < len(n.links) {
+		return &n.links[n.currentLinkIndex]
 	}
 	return nil
 }
 
-func (s *State) Next() *Link {
-	if s.currentLinkIndex+1 < len(s.links) {
-		return &s.links[s.currentLinkIndex+1]
+func (n *Navigation) Next() *Link {
+	if n.currentLinkIndex+1 < len(n.links) {
+		return &n.links[n.currentLinkIndex+1]
 	}
 	return nil
 }
 
-func (s *State) Previous() *Link {
-	if s.currentLinkIndex-1 >= 0 {
-		return &s.links[s.currentLinkIndex-1]
+func (n *Navigation) Previous() *Link {
+	if n.currentLinkIndex-1 >= 0 {
+		return &n.links[n.currentLinkIndex-1]
 	}
 	return nil
 }
 
-func (s *State) SetCurrentLinkIndexByHref(href string) {
-	for i, link := range s.links {
+func (n *Navigation) SetCurrentLinkIndexByHref(href string) {
+	for i, link := range n.links {
 		if link.Href == href {
-			s.currentLinkIndex = i
+			n.currentLinkIndex = i
 			return
 		}
 	}
 }
 
-func (s *State) GetCurrentLink() *Link {
-	return &s.links[s.currentLinkIndex]
+func (n *Navigation) GetCurrentLink() *Link {
+	return &n.links[n.currentLinkIndex]
 }
 
-func (s *State) GetAllLinks() []Link {
-	return s.links
+func (n *Navigation) GetAllLinks() []Link {
+	return n.links
 }
