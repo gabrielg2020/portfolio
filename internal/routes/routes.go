@@ -30,6 +30,10 @@ func SetupRouter(state *state.State) *gin.Engine {
 		handlers.About(ctx, state)
 	})
 
+	router.GET("/projects", func(ctx *gin.Context) {
+		handlers.Projects(ctx, state)
+	})
+
 	// Load templates
 	router.LoadHTMLGlob("views/**/*.html")
 

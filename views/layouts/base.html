@@ -19,6 +19,12 @@
       {{template "home_content" .}}
     {{else if eq .title "01 - About Me"}}
       {{template "about_content" .}}
+    {{else if eq .title "02 - Projects"}}
+      {{template "projects_content" .}}
+    {{else if eq .title "03 - Experience"}}
+      {{template "experience_content" .}}
+    {{else if eq .title "04 - Blog"}}
+      {{template "blog_content" .}}
     {{end}}
   </main>
 </body>

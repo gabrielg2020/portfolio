@@ -1,0 +1,10 @@
+{{template "base.html" .}}
+
+{{define "projects_content"}}
+<h1>Projects</h1>
+<div>
+  {{range .projects}}
+    {{template "project.html" .}}
+  {{end}}
+</div>
+{{end}}
