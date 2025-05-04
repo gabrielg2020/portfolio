@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Test Blog",
+    "tags": ["tag1", "tag2", "tag3"],
+    "timeToRead": "1 minute",
+    "datePosted": "2025-05-04",
+    "htmlFile": "test.html",
+  },
+]

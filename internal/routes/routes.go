@@ -38,6 +38,10 @@ func SetupRouter(navigation *models.Navigation, storage *models.Storage) *gin.En
 		handlers.Experience(ctx, navigation, storage)
 	})
 
+	router.GET("/blog", func(ctx *gin.Context) {
+		handlers.Blog(ctx, navigation)
+	})
+
 	// Load templates
 	router.LoadHTMLGlob("views/**/*.html")
 
