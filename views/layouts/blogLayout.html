@@ -1,0 +1,20 @@
+{{define "blogLayout.html"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{.blog.Title}}</title>
+  <link href="/static/css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <main>
+    {{template "blog.html" .blog}}
+
+    <div>
+      {{.content}}
+    </div>
+  </main>
+</body>
+</html>
+{{end}}
