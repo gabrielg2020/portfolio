@@ -25,6 +25,13 @@ func LoadStorage(dataDir string) (*models.Storage, error) {
 	}
 	storage.Experiences = experiences
 
+	// Load blogs
+	blogs, err := loadJSONFile[[]models.Blog](filepath.Join(dataDir, "blogs.json"))
+	if err != nil {
+		return nil, err
+	}
+	storage.Blogs = blogs
+
 	return storage, nil
 }
 

@@ -1,9 +1,11 @@
 [
   {
     "title": "Test Blog",
+    "description": "test description",
     "tags": ["tag1", "tag2", "tag3"],
     "timeToRead": "1 minute",
-    "datePosted": "2025-05-04",
-    "htmlFile": "test.html",
-  },
+    "datePosted": "May 2, 2025",
+    "href": "/test",
+    "htmlFile": "test.html"
+  }
 ]

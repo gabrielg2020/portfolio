@@ -1,0 +1,10 @@
+{{template "base.html" .}}
+
+{{define "blogs_content"}}
+<h1>Blog</h1>
+<div> 
+  {{range .blogs}}
+    {{template "blog.html" .}}
+  {{end}}
+</div>
+{{end}}

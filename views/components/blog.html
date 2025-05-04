@@ -1,0 +1,10 @@
+{{define "blog.html"}}
+<div>
+  <h2><a href={{printf "/blog%s" .Href}}>{{.Title}}</a></h2>
+  <h3>{{.DatePosted}} |  {{.TimeToRead}}</h3>
+  <h4>{{.Description}}</h4>
+  {{range .Tags}}
+    <p>{{.}}</p>
+  {{end}}
+</div>
+{{end}}

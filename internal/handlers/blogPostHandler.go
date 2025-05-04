@@ -7,13 +7,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Blog(ctx *gin.Context, navigation *models.Navigation, storage *models.Storage) {
+func BlogPost(ctx *gin.Context, navigation *models.Navigation, blog *models.Blog) {
 	navigation.SetCurrentLinkIndexByHref("/blog")
 	link := navigation.GetCurrentLink()
-	ctx.HTML(http.StatusOK, "blogs.html", gin.H{
+	ctx.HTML(http.StatusOK, blog.HtmlFile, gin.H{
 		"title":    link.Name,
 		"prevLink": navigation.Previous(),
 		"nextLink": navigation.Next(),
-		"blogs":    storage.Blogs,
+		"blog":     blog,
 	})
 }

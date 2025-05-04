@@ -39,8 +39,17 @@ func SetupRouter(navigation *models.Navigation, storage *models.Storage) *gin.En
 	})
 
 	router.GET("/blog", func(ctx *gin.Context) {
-		handlers.Blog(ctx, navigation)
+		handlers.Blog(ctx, navigation, storage)
 	})
+
+	blog := router.Group("/blog")
+	{
+		for _, blogPost := range storage.Blogs {
+			blog.GET(blogPost.Href, func(ctx *gin.Context) {
+				handlers.BlogPost(ctx, navigation, &blogPost)
+			})
+		}
+	}
 
 	// Load templates
 	router.LoadHTMLGlob("views/**/*.html")
