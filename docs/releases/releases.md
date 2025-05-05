@@ -12,7 +12,7 @@ permalink: /docs/releases
 
 ## History
 
-### TBD
+### 05.05.25
 
 [v1.1.0](https://github.com/gabrielg2020/portfolio/releases/tag/v1.1.0)
 
