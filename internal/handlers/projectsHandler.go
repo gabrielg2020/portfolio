@@ -12,8 +12,6 @@ func Projects(ctx *gin.Context, navigation *models.Navigation, storage *models.S
 	link := navigation.GetCurrentLink()
 	ctx.HTML(http.StatusOK, "projects.html", gin.H{
 		"title":    link.Name,
-		"prevLink": navigation.Previous(),
-		"nextLink": navigation.Next(),
 		"projects": storage.Projects,
 	})
 }

@@ -12,8 +12,6 @@ func Experience(ctx *gin.Context, navigation *models.Navigation, storage *models
 	link := navigation.GetCurrentLink()
 	ctx.HTML(http.StatusOK, "experiences.html", gin.H{
 		"title":       link.Name,
-		"prevLink":    navigation.Previous(),
-		"nextLink":    navigation.Next(),
 		"experiences": storage.Experiences,
 	})
 }

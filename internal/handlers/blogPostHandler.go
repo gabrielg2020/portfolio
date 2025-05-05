@@ -11,9 +11,7 @@ import (
 func BlogPost(ctx *gin.Context, navigation *models.Navigation, blog *models.Blog) {
 	navigation.SetCurrentLinkIndexByHref("/blog")
 	ctx.HTML(http.StatusOK, "blogLayout.html", gin.H{
-		"prevLink": navigation.Previous(),
-		"nextLink": navigation.Next(),
-		"blog":     blog,
-		"content":  services.LoadHTML("/home/gabriel/projects/portfolio/views/blog/test.html"),
+		"blog":    blog,
+		"content": services.LoadHTML("/home/gabriel/projects/portfolio/views/blog/test.html"),
 	})
 }

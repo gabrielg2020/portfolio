@@ -8,14 +8,9 @@
     <link href="/static/css/styles.css" rel="stylesheet">
 </head>
 <body>
-  <nav>
-    {{if .prevLink}}
-      <a href={{.prevLink.Href}}><- {{.prevLink.Name}}</a>
-    {{end}}
-    {{if .nextLink}}
-      <a href={{.nextLink.Href}}>{{.nextLink.Name}} -></a>
-    {{end}}
-  </nav>
+  {{if ne .title "00 - Home"}}
+    {{template "nav.html" .}}
+  {{end}}  
   <main>
     {{if eq .title "00 - Home"}}
       {{template "home_content" .}}

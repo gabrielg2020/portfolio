@@ -11,9 +11,7 @@ func Blog(ctx *gin.Context, navigation *models.Navigation, storage *models.Stora
 	navigation.SetCurrentLinkIndexByHref("/blog")
 	link := navigation.GetCurrentLink()
 	ctx.HTML(http.StatusOK, "blogs.html", gin.H{
-		"title":    link.Name,
-		"prevLink": navigation.Previous(),
-		"nextLink": navigation.Next(),
-		"blogs":    storage.Blogs,
+		"title": link.Name,
+		"blogs": storage.Blogs,
 	})
 }

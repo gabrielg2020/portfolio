@@ -11,8 +11,6 @@ func About(ctx *gin.Context, navigation *models.Navigation) {
 	navigation.SetCurrentLinkIndexByHref("/about")
 	link := navigation.GetCurrentLink()
 	ctx.HTML(http.StatusOK, "about.html", gin.H{
-		"title":    link.Name,
-		"prevLink": navigation.Previous(),
-		"nextLink": navigation.Next(),
+		"title": link.Name,
 	})
 }
