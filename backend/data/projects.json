@@ -40,5 +40,25 @@
     "technologies": [
       "GIN"
     ]
+  },
+  {
+    "id": 4,
+    "title": "Codeowners",
+    "description": "Built a script that automatically rotates codeowners for a GitHub Organisation using a recursive algorithm that takes into account extra data like codeowner frequency and previously owned repositories. This project was built for my Software Fundamentals module (QAC020C125SS).",
+    "githubURL": "https://github.com/gabrielg2020/codeowners",
+    "languages": [
+      "Python"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Garage Database Model",
+    "description": "Designed and constructed a fully normalised relational data model that stores data on garages, customers, owners and cars. I also added multiple helper scripts that rebuilds, displays, lists and run queries. This was built for my Data Modelling module (QAC020C123A).",
+    "languages": [
+      "Shell"
+    ],
+    "technologies": [
+      "SQLite"
+    ]
   }
 ]
