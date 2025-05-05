@@ -1,0 +1,35 @@
+remote_theme: pmarsceill/just-the-docs
+plugins:
+- jekyll-remote-theme
+- jekyll-relative-links
+
+title: Portfolio
+description: Internal documentation for the Gabriel Guimaraes' portfolio
+
+# Enable dark color scheme
+color_scheme: dark
+
+# Enable GitHub Flavored Markdown
+markdown: GFM
+
+# Enable search
+search_enabled: true
+
+# Configure the sidebar to use a hierarchical structure
+aux_links:
+  "GitHub Repository":
+    - "//github.com/gabrielg2020/portfolio"
+
+# Organizing pages with collections
+collections:
+  docs:
+    permalink: "/:collection/:path/"
+    output: true
+
+# Use defaults for better control over front matter
+defaults:
+  - scope:
+      path: ""
+      type: docs
+    values:
+      layout: default
