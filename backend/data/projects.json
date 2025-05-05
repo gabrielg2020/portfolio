@@ -54,6 +54,7 @@
     "id": 5,
     "title": "Garage Database Model",
     "description": "Designed and constructed a fully normalised relational data model that stores data on garages, customers, owners and cars. I also added multiple helper scripts that rebuilds, displays, lists and run queries. This was built for my Data Modelling module (QAC020C123A).",
+    "githubURL": "https://www.github.com/gabrielg2020/mot-garage-database",
     "languages": [
       "Shell"
     ],
