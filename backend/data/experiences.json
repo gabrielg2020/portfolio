@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "type": "work",
+    "organisation": "DVSA",
+    "role": "Software Engineer",
+    "startYear": "2024",
+    "endYear": "Current",
+    "description": "description",
+    "languages": [
+      "TypeScript",
+      "PHP"
+    ],
+    "technologies": [
+      "Docker",
+      "Lamanias",
+      "AWS",
+      "MySQL"
+    ]
+  },
+  {
+    "id": 2,
+    "type": "education",
+    "organisation": "University of Roehampton",
+    "role": "BSc Digital Technology Solutions",
+    "startYear": "2024",
+    "endYear": "Current",
+    "description": "description",
+    "languages": [
+      "Go",
+      "Python"
+    ],
+    "technologies": [
+      "AWS",
+      "MySQL"
+    ]
+  },
+  {
+    "id": 3,
+    "type": "work",
+    "organisation": "LEGO",
+    "role": "Retail Marketing Intern",
+    "startYear": "2022",
+    "endYear": "2022",
+    "description": "description"
+  },
+  {
+    "id": 4,
+    "type": "education",
+    "organisation": "Fullbrook 6th Form",
+    "role": "A Level Computer Science, Maths, Physics",
+    "startYear": "2021",
+    "endYear": "2023",
+    "description": "description",
+    "languages": [
+      "VB.Net"
+    ],
+    "technologies": [
+      "MySQL"
+    ]
+  }
+]
