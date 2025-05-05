@@ -6,7 +6,7 @@
     "role": "Software Engineer",
     "startYear": "2024",
     "endYear": "Current",
-    "description": "description",
+    "description": "Maintained the Vehicle Operator Licence service with modern development approaches that enhanced user experience for over 20,000 UK businesses. Started the containerisation initiative on VOL creating base PHP Docker images and rewrote a Java 17 API into TypeScript improving maintainability and service security.",
     "languages": [
       "TypeScript",
       "PHP"
@@ -25,7 +25,7 @@
     "role": "BSc Digital Technology Solutions",
     "startYear": "2024",
     "endYear": "Current",
-    "description": "description",
+    "description": "Designed and developed business-focused applications and systems architecture like database functionality and developer tools, while demonstrating strong theoretical understanding through academic writing on enterprise systems, maintaining performance consistent with upper second-class honors.",
     "languages": [
       "Go",
       "Python"
@@ -42,7 +42,7 @@
     "role": "Retail Marketing Intern",
     "startYear": "2022",
     "endYear": "2022",
-    "description": "description"
+    "description": "Collaborated with a team of six to develop an innovative in-store retail activation concept for LEGO, gathering strategic insights through specialist consultations and delivering a comprehensive presentation that demonstrated seamless integration of data capture solutions within existing infrastructure, complete with defined roles and implementation strategies."
   },
   {
     "id": 4,
@@ -51,7 +51,7 @@
     "role": "A Level Computer Science, Maths, Physics",
     "startYear": "2021",
     "endYear": "2023",
-    "description": "description",
+    "description": "Studied foundational topics like calculus, Newtonian mechanics, and data structures and algorithms, achieving a C grade average overall while excelling with a perfect score of 100% in computer science coursework assignment.",
     "languages": [
       "VB.Net"
     ],
