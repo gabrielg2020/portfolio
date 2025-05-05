@@ -24,26 +24,14 @@ WORKDIR /app
 # Copy source code
 COPY backend/ ./
 
-# Remove source database and create a clean one
-RUN [ -f database/portfolio.db ] && rm database/portfolio.db || true && touch database/portfolio.db
-
-# Install sqlite3
-RUN apk add --no-cache sqlite sqlite-libs
-
-# Run database rebuild script
-RUN chmod +x database/rebuild_db.sh && ./database/rebuild_db.sh
-
 # Download dependencies
 RUN go mod download
 
 # Remove local static files that go copied
 RUN rm -rf static
 
-# Install C compiler
-RUN apk add --no-cache gcc musl-dev
-
 # Build backend
-RUN CGO_ENABLED=1 GOOS=linux go build -o bin/server
+RUN GOOS=linux go build -o bin/server
 
 # --- Stage 3: Run server! ---
 
@@ -57,8 +45,8 @@ COPY --from=frontend-builder /backend/static ./static
 # Copy binary from backend-builder
 COPY --from=backend-builder /app/bin/server /app/server
 
-# Copy database from backend-builder
-COPY --from=backend-builder /app/database/portfolio.db /app/database/portfolio.db
+# Copy data from backend-builder
+COPY --from=backend-builder /app/data ./data
 
 EXPOSE 8080
 

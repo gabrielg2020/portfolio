@@ -8,7 +8,7 @@ services:
     volumes:
       # Use local build
       - ./backend/static:/app/static
-      - ./backend/database:/app/database
+      - ./backend/data:/app/data
 
   # Development
   frontend-dev:
