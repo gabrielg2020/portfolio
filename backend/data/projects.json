@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Portfolio",
-    "description": "description",
+    "description": "I designed and developed a comprehensive personal portfolio website to showcase my professional projects, technical skills, and relevant work experience, providing visitors.",
     "githubURL": "https://www.github.com/gabrielg2020/portfolio",
     "liveURL": "https://www.gabrielg.tech",
     "languages": [
@@ -11,17 +11,34 @@
     ],
     "technologies": [
       "Svelte",
+      "GIN",
       "Docker"
     ]
   },
   {
     "id": 2,
     "title": "Maze Visualiser",
-    "description": "description",
+    "description": "The Maze Visualizer is an academic desktop application that demonstrates various maze generation and solving algorithms in real-time with customizable parameters including entry/exit points and color schemes.",
     "githubURL": "https://www.github.com/gabrielg2020/maze-visualiser",
     "liveURL": "https://www.youtube.com/playlist?list=PL3YAEsPABRrxRmNFIRFjes7XDmWsjn9kN",
     "languages": [
       "VB.Net"
+    ],
+    "technologies": [
+      "Win Forms"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "MOT History Go SDK",
+    "description": "I contributed to this open source SDK building out a testing suite mocking the MOT History server, introduced SDK rate limiting and added structured responses. These changes improved the stability of the SDK and developer experience.",
+    "githubURL": "https://www.github.com/gabrielg2020/mothistory",
+    "liveURL": "https://documentation.history.mot.api.gov.uk/",
+    "languages": [
+      "Go"
+    ],
+    "technologies": [
+      "GIN"
     ]
   }
 ]

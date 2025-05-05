@@ -17,7 +17,6 @@ This portfolio serves as a comprehensive showcase of my work, skills, and experi
 The website is built using a modern tech stack:
 
 - **Backend**: Go with GIN framework
-- **Database**: SQLite
 - **Frontend**: Svelte TypeScript
 - **Styling**: TailwindCSS
 
