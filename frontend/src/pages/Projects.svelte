@@ -5,20 +5,24 @@
   import Error from "../components/Error.svelte";
   import { GetProjects } from "../scripts/callers/getProjects";
   import type { Project } from "../scripts/callers/getProjects";
-  
+
   // State management
   let projectsPromise: Promise<Project[]>;
-  
+
   // Load projects function (can be called for retries)
   function loadProjects() {
     projectsPromise = GetProjects();
   }
-  
+
   // Initial load
   loadProjects();
 
   // Helper function to get projects for a specific slide
-  function getProjectsForSlide(projects: Project[], slideIndex: number, itemsPerSlide: number) {
+  function getProjectsForSlide(
+    projects: Project[],
+    slideIndex: number,
+    itemsPerSlide: number,
+  ) {
     const startIdx = slideIndex * itemsPerSlide;
     return projects.slice(startIdx, startIdx + itemsPerSlide);
   }
@@ -43,8 +47,8 @@
               description={project.description}
               languages={project.languages}
               technologies={project.technologies}
-              githubUrl={project.githubUrl}
-              liveUrl={project.liveUrl}
+              githubUrl={project.githubURL}
+              liveUrl={project.liveURL}
             />
           </div>
         {/each}
@@ -56,9 +60,10 @@
       </svelte:fragment>
     </Carousel>
   {:catch error}
-    <Error 
-      message={`Failed to load projects: ${error.message}`} 
-      retryFn={loadProjects} 
+    <Error
+      message={`Failed to load projects: ${error.message}`}
+      retryFn={loadProjects}
     />
   {/await}
 </section>
+

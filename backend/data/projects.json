@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "Portfolio",
+    "description": "description",
+    "githubURL": "https://www.github.com/gabrielg2020/portfolio",
+    "liveURL": "https://www.gabrielg.tech",
+    "languages": [
+      "Go",
+      "TypeScript"
+    ],
+    "technologies": [
+      "Svelte",
+      "Docker"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Maze Visualiser",
+    "description": "description",
+    "githubURL": "https://www.github.com/gabrielg2020/maze-visualiser",
+    "liveURL": "https://www.youtube.com/playlist?list=PL3YAEsPABRrxRmNFIRFjes7XDmWsjn9kN",
+    "languages": [
+      "VB.Net"
+    ]
+  }
+]
