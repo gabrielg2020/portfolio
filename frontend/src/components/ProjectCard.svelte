@@ -13,7 +13,7 @@
 </script>
 
 <div
-  class="p-5 bg-white dark:bg-gray-900 border-l-2 border-blue-600 transition-all duration-300 hover:border-l-4 h-full flex flex-col"
+  class="p-5 bg-white dark:bg-gray-900 border-l-2 border-blue-600 transition-all duration-100 hover:border-l-4 h-full flex flex-col"
 >
   <!-- Header with links -->
   <div class="flex justify-between items-start mb-3">

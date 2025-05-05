@@ -106,7 +106,7 @@
   });
 </script>
 
-<section class="py-16 bg-gray-50 dark:bg-gray-800 transition-colors">
+<section class="py-8 bg-gray-50 dark:bg-gray-800 transition-colors">
   <div class="container mx-auto px-6">
     <div class="flex justify-between items-center mb-8">
       <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
