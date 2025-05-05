@@ -1,10 +1,13 @@
 ---
-sidebar_position: 3
+layout: default
 title: Project Structure
-slug: /project-structure
+parent: Development Guide
+nav_order: 2
 ---
 
-This section provides an overview of the project's directory structure and the purpose of each component.
+# Project Structre
+
+This section provides an overview of the project's directory structure.
 
 ## Root Directory
 
@@ -13,7 +16,7 @@ The root directory contains configuration files and directories for the main com
 ```md
 .
 ├── backend/            # Go backend application
-├── docs/               # Documentation (Docusaurus)
+├── docs/               # Documentation
 ├── frontend/           # Svelte frontend application
 ├── .dockerignore       # Specifies files to exclude from Docker builds
 ├── docker-compose.yaml # Docker Compose configuration
@@ -26,10 +29,7 @@ The root directory contains configuration files and directories for the main com
 
 ```md
 backend
-├── database
-│   ├── data          # Data patches
-│   ├── portfolio.db  # SQLite Database
-│   └── rebuild_db.sh # Database rebuilding script
+├── data              # Where .json data is kept
 ├── handlers          # HTTP request handlers
 ├── logger            # Where logger is kept
 ├── queries           # Query builders
@@ -56,20 +56,6 @@ frontend/
 ├── index.html         # HTML entry point
 ├── svelte.config.ts   # Svelte configuration
 └── vite.config.ts     # Vite build configuration
-```
-
-## Documentation Structure
-
-The documentation is built using Docusaurus:
-
-```md
-docs/
-├── docs/               # Documentation content
-├── src/
-│   └── pages/
-│       └── index.tsx   # Homepage
-├── docusaurus.config.ts # Docusaurus configuration
-└── sidebars.ts         # Documentation sidebar configuration
 ```
 
 ## Docker Configuration
