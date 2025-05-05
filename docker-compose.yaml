@@ -27,14 +27,15 @@ services:
   backend-dev:
     image: golang:1.23.2-alpine
     working_dir: /app
-    command: sh -c "apk add --no-cache gcc musl-dev sqlite-dev && go run main.go"
+    command: go run main.go
     ports:
       - "8080:8080"
     volumes:
       - ./backend:/app
     environment:
       - GO_ENV=development
-      - CGO_ENABLED=1
+    depends_on:
+      - frontend-dev
     tty: true
     stdin_open: true
 
